@@ -4,71 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WESTPAC SENTINEL | 世界経済・安全保障構造モニター</title>
-  <meta
-    name="description"
-    content="WESTPAC SENTINEL は、米国グローバルシステムと中国グローバルシステムの再編を、経済と安全保障の両面から分析する独立研究プロジェクトです。"
-  />
-  <meta name="theme-color" content="#08111b" />
-  <meta name="robots" content="index,follow" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="WESTPAC SENTINEL | 世界経済・安全保障構造モニター" />
-  <meta property="og:description" content="米国グローバルシステムと中国グローバルシステムの再編を、経済と安全保障の両面から分析する独立研究プロジェクト。" />
-  <meta property="og:image" content="IMG_3831.jpeg" />
-  <meta property="og:locale" content="ja_JP" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="WESTPAC SENTINEL" />
-  <meta name="twitter:description" content="世界経済・安全保障構造モニター" />
-  <meta name="twitter:image" content="IMG_3831.jpeg" />
-  <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%2308111b"/><circle cx="32" cy="32" r="18" fill="%238fb9d7"/><circle cx="26" cy="26" r="6" fill="%23e5f0f8"/></svg>' />
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"WESTPAC SENTINEL",
-    "description":"世界経済・安全保障構造モニター",
-    "inLanguage":"ja",
-    "image":"IMG_3831.jpeg"
-  }
-  </script>
+  <meta name="description" content="WESTPAC SENTINEL は、米国グローバルシステムと中国グローバルシステムの再編を、経済と安全保障の両面から分析する独立研究プロジェクトです。">
+  <meta name="theme-color" content="#08111b">
+  <meta property="og:title" content="WESTPAC SENTINEL | 世界経済・安全保障構造モニター">
+  <meta property="og:description" content="米国グローバルシステムと中国グローバルシステムの再編を、経済と安全保障の両面から分析する独立研究プロジェクト。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="IMG_3831.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="IMG_3831.jpeg">
 
   <style>
     :root{
       --bg:#08111b;
-      --bg-2:#0d1825;
-      --bg-3:#102235;
+      --bg2:#0d1825;
       --panel:#102338;
-      --panel-2:#132943;
-      --panel-3:#0d1c2c;
+      --panel2:#132943;
       --line:rgba(255,255,255,.08);
-      --line-strong:rgba(255,255,255,.16);
+      --line-strong:rgba(255,255,255,.14);
       --text:#edf4f8;
-      --muted:#a9bac9;
-      --soft:#dbe6ef;
+      --muted:#a8bac9;
       --accent:#8fb9d7;
-      --accent-2:#5f88a8;
       --good:#8cc6a2;
       --warn:#d0b36d;
-      --shadow:0 18px 42px rgba(0,0,0,.30);
+      --shadow:0 16px 38px rgba(0,0,0,.28);
       --radius:22px;
-      --max:1180px;
-      --header-h:82px;
-      --header-h-small:64px;
+      --max:1160px;
+      --header-h:74px;
+      --header-h-small:58px;
     }
 
-    *{
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(95,136,168,.10), transparent 26%),
+        radial-gradient(circle at top left, rgba(95,136,168,.10), transparent 24%),
         linear-gradient(180deg, #06101a 0%, #08111b 100%);
       font-family:
         "Noto Sans JP",
@@ -78,28 +49,32 @@
         "Yu Gothic",
         "Meiryo",
         sans-serif;
-      line-height:1.9;
+      line-height:1.85;
       letter-spacing:.01em;
     }
 
-    img{
-      display:block;
-      max-width:100%;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    button,
-    input{
-      font:inherit;
-    }
-
+    img{ display:block; max-width:100%; }
+    a{ color:inherit; text-decoration:none; }
     .container{
       width:min(var(--max), calc(100% - 28px));
       margin-inline:auto;
+    }
+
+    .skip-link{
+      position:absolute;
+      left:12px;
+      top:-48px;
+      z-index:2000;
+      padding:10px 14px;
+      border-radius:10px;
+      background:#ffffff;
+      color:#000000;
+      font-weight:700;
+      transition:top .2s ease;
+    }
+
+    .skip-link:focus{
+      top:12px;
     }
 
     .site-header{
@@ -110,13 +85,13 @@
       background:rgba(8,17,27,.84);
       backdrop-filter:blur(14px);
       border-bottom:1px solid var(--line);
-      transition:height .22s ease, background .22s ease, box-shadow .22s ease;
+      transition:height .2s ease, background .2s ease, box-shadow .2s ease;
     }
 
-    .site-header.is-compact{
+    .site-header.compact{
       height:var(--header-h-small);
       background:rgba(8,17,27,.94);
-      box-shadow:0 10px 28px rgba(0,0,0,.22);
+      box-shadow:0 10px 24px rgba(0,0,0,.20);
     }
 
     .header-inner{
@@ -124,7 +99,7 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
+      gap:12px;
     }
 
     .brand{
@@ -132,14 +107,15 @@
       display:flex;
       align-items:center;
       gap:12px;
+      flex:1 1 auto;
     }
 
-    .brand-mark{
+    .brand-dot{
       width:16px;
       height:16px;
       border-radius:50%;
       flex:0 0 auto;
-      background:radial-gradient(circle at 35% 35%, #e5f0f8, #8fb9d7 60%, #41617b 100%);
+      background:radial-gradient(circle at 35% 35%, #e3eef8, #8fb9d7 60%, #41617b 100%);
       box-shadow:0 0 0 8px rgba(143,185,215,.10);
     }
 
@@ -149,7 +125,7 @@
 
     .brand-title{
       margin:0;
-      font-size:1.04rem;
+      font-size:1rem;
       font-weight:900;
       letter-spacing:.08em;
       white-space:nowrap;
@@ -166,81 +142,59 @@
       text-overflow:ellipsis;
     }
 
-    .nav-wrap{
-      min-width:0;
-      overflow-x:auto;
-      scrollbar-width:none;
-    }
-
-    .nav-wrap::-webkit-scrollbar{
-      display:none;
-    }
-
-    .nav{
+    .top-nav{
       display:flex;
       align-items:center;
-      gap:10px;
-      width:max-content;
-      min-width:100%;
-      justify-content:flex-end;
+      gap:8px;
+      overflow-x:auto;
+      scrollbar-width:none;
+      flex:0 1 auto;
+      max-width:60%;
     }
 
-    .nav a,
-    .nav button{
+    .top-nav::-webkit-scrollbar{ display:none; }
+
+    .top-nav a{
+      white-space:nowrap;
       padding:8px 12px;
       border-radius:999px;
       border:1px solid transparent;
-      background:transparent;
       color:#dce8ef;
       font-size:.84rem;
-      white-space:nowrap;
-      cursor:pointer;
-      transition:background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+      transition:background .18s ease, border-color .18s ease;
     }
 
-    .nav a:hover,
-    .nav a.active,
-    .nav button:hover{
+    .top-nav a:hover,
+    .top-nav a.active{
       background:rgba(255,255,255,.05);
       border-color:var(--line);
-      color:#f2f7fb;
     }
 
     .hero{
       position:relative;
-      min-height:96vh;
+      min-height:88vh;
       display:flex;
       align-items:flex-end;
-      background:
-        linear-gradient(180deg, rgba(5,13,22,.12) 0%, rgba(5,13,22,.38) 48%, rgba(5,13,22,.86) 100%),
-        linear-gradient(90deg, rgba(5,13,22,.70) 0%, rgba(5,13,22,.20) 46%, rgba(5,13,22,.74) 100%),
-        url("IMG_3831.jpeg") center center / cover no-repeat;
       border-bottom:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(5,13,22,.16) 0%, rgba(5,13,22,.42) 48%, rgba(5,13,22,.88) 100%),
+        linear-gradient(90deg, rgba(5,13,22,.70) 0%, rgba(5,13,22,.20) 46%, rgba(5,13,22,.76) 100%),
+        url("IMG_3831.jpeg") center center / cover no-repeat;
     }
 
     .hero::after{
       content:"";
       position:absolute;
       inset:0;
-      background:radial-gradient(circle at top left, rgba(143,185,215,.12), transparent 28%);
       pointer-events:none;
+      background:radial-gradient(circle at top left, rgba(143,185,215,.10), transparent 28%);
     }
 
     .hero-inner{
       position:relative;
       z-index:2;
       width:100%;
-      padding:126px 0 34px;
-    }
-
-    .hero-grid{
-      display:grid;
-      gap:18px;
-      align-items:end;
-    }
-
-    .hero-copy{
-      max-width:860px;
+      padding:112px 0 26px;
     }
 
     .eyebrow{
@@ -267,18 +221,24 @@
 
     .hero-title{
       margin:0;
-      font-size:clamp(2.6rem, 9vw, 5.3rem);
+      font-size:clamp(2.5rem, 11vw, 5.1rem);
       line-height:1.02;
       letter-spacing:.04em;
       font-weight:900;
-      text-shadow:0 10px 24px rgba(0,0,0,.26);
+      text-shadow:0 10px 24px rgba(0,0,0,.24);
     }
 
     .hero-subtitle{
       margin:18px 0 0;
-      max-width:760px;
+      max-width:720px;
       color:#dce7ef;
-      font-size:clamp(1rem, 2.5vw, 1.14rem);
+      font-size:clamp(1rem, 2.7vw, 1.1rem);
+    }
+
+    .hero-meta{
+      margin-top:16px;
+      color:#c5d5e0;
+      font-size:.88rem;
     }
 
     .cta-row{
@@ -292,13 +252,13 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:46px;
+      min-height:44px;
       padding:10px 16px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.12);
       background:rgba(255,255,255,.04);
       color:#eef4f8;
-      font-size:.92rem;
+      font-size:.90rem;
       transition:transform .18s ease, background .18s ease, border-color .18s ease;
     }
 
@@ -313,144 +273,13 @@
       border-color:rgba(143,185,215,.30);
     }
 
-    .theme-pills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
-    }
-
-    .theme-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(8,17,27,.38);
-      color:#e4edf4;
-      font-size:.90rem;
-      backdrop-filter:blur(10px);
-    }
-
-    .theme-pill::before{
-      content:"";
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:var(--accent);
-      flex:0 0 auto;
-    }
-
-    .hero-dashboard{
-      display:grid;
-      gap:12px;
-      margin-top:26px;
-    }
-
-    .dash-card{
-      padding:16px;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:18px;
-      background:rgba(8,17,27,.40);
-      backdrop-filter:blur(12px);
-      box-shadow:var(--shadow);
-    }
-
-    .dash-label{
-      margin:0 0 6px;
-      color:#a9bac9;
-      font-size:.78rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
-    .dash-value{
-      margin:0;
-      color:#f0f6fa;
-      font-size:1rem;
-      font-weight:800;
-    }
-
-    .status-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:8px;
-    }
-
-    .status-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.03);
-      font-size:.80rem;
-      color:#dce7ef;
-    }
-
-    .status-pill::before{
-      content:"";
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      flex:0 0 auto;
-      background:var(--accent);
-    }
-
-    .status-pill.good::before{
-      background:var(--good);
-    }
-
-    .status-pill.warn::before{
-      background:var(--warn);
-    }
-
-    .search-wrap{
-      margin-top:18px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-    }
-
-    .search-box{
-      flex:1 1 280px;
-      position:relative;
-    }
-
-    .search-box input{
-      width:100%;
-      min-height:46px;
-      padding:10px 14px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(8,17,27,.42);
-      color:#eef4f8;
-      outline:none;
-    }
-
-    .search-box input::placeholder{
-      color:#9fb1c0;
-    }
-
-    .search-meta{
-      color:#c9d8e3;
-      font-size:.85rem;
-    }
-
     .section-nav{
-      padding:16px 0 8px;
+      padding:14px 0 2px;
       overflow-x:auto;
       scrollbar-width:none;
-      background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,0));
     }
 
-    .section-nav::-webkit-scrollbar{
-      display:none;
-    }
+    .section-nav::-webkit-scrollbar{ display:none; }
 
     .section-nav-inner{
       display:flex;
@@ -467,7 +296,7 @@
       background:rgba(255,255,255,.03);
       color:#dce7ef;
       font-size:.88rem;
-      transition:background .2s ease, border-color .2s ease;
+      transition:background .18s ease, border-color .18s ease;
     }
 
     .section-nav a:hover,
@@ -481,8 +310,8 @@
     }
 
     .section{
-      padding:40px 0 26px;
-      scroll-margin-top:88px;
+      padding:38px 0 24px;
+      scroll-margin-top:84px;
     }
 
     .section + .section{
@@ -523,14 +352,7 @@
       box-shadow:var(--shadow);
     }
 
-    .panel + .panel{
-      margin-top:16px;
-    }
-
-    .panel p{
-      margin:0;
-      color:#d7e2ea;
-    }
+    .panel p{ margin:0; color:#d7e2ea; }
 
     .quote-box{
       border-left:4px solid var(--accent);
@@ -548,20 +370,17 @@
     .card{
       background:
         linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
-        var(--panel-2);
+        var(--panel2);
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:22px 18px;
       box-shadow:var(--shadow);
-      transition:transform .18s ease, border-color .18s ease, background .18s ease, opacity .18s ease;
+      transition:transform .18s ease, border-color .18s ease;
     }
 
     .card:hover{
       transform:translateY(-2px);
       border-color:var(--line-strong);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015)),
-        var(--panel-2);
     }
 
     .card h3{
@@ -591,50 +410,7 @@
       color:#d7e2eb;
     }
 
-    .list-clean li + li{
-      margin-top:12px;
-    }
-
-    .mini-list{
-      display:grid;
-      gap:12px;
-    }
-
-    .mini-item{
-      padding:14px;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
-    }
-
-    .mini-item strong{
-      display:block;
-      margin-bottom:6px;
-      color:#eef4f8;
-      font-size:.96rem;
-    }
-
-    .mini-item span{
-      color:#cad7e1;
-      font-size:.92rem;
-    }
-
-    .tag-list{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--line);
-      color:#e2edf4;
-      font-size:.84rem;
-    }
+    .list-clean li + li{ margin-top:12px; }
 
     .stats-grid{
       display:grid;
@@ -660,58 +436,6 @@
       font-size:.88rem;
     }
 
-    .table-wrap{
-      overflow-x:auto;
-    }
-
-    .table{
-      width:100%;
-      border-collapse:collapse;
-      font-size:.92rem;
-    }
-
-    .table th,
-    .table td{
-      text-align:left;
-      padding:10px 12px;
-      border-bottom:1px solid var(--line);
-      vertical-align:top;
-    }
-
-    .table th{
-      color:#eef4f8;
-      font-weight:800;
-      white-space:nowrap;
-    }
-
-    .table td{
-      color:#d3dfe8;
-    }
-
-    .is-hidden{
-      display:none !important;
-    }
-
-    .no-results{
-      margin-top:14px;
-      padding:14px 16px;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:rgba(255,255,255,.03);
-      color:#dce7ef;
-    }
-
-    .about-grid{
-      display:grid;
-      gap:16px;
-    }
-
-    .muted-note{
-      margin-top:12px;
-      color:var(--muted);
-      font-size:.88rem;
-    }
-
     .footer{
       border-top:1px solid var(--line);
       padding:28px 0 40px;
@@ -719,219 +443,94 @@
       font-size:.92rem;
     }
 
-    .footer strong{
-      color:#e8f1f7;
+    .footer strong{ color:#e8f1f7; }
+
+    @media (min-width:760px){
+      .grid.two{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .grid.three{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
+      .stats-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
     }
 
-    @media print{
-      .site-header,
-      .section-nav,
-      .cta-row,
-      .search-wrap{
-        display:none !important;
-      }
-      body{
-        background:#fff;
-        color:#000;
-      }
-      .panel,
-      .card,
-      .dash-card{
-        box-shadow:none;
-        border:1px solid #ccc;
-        background:#fff;
-        color:#000;
-      }
-      .hero{
-        min-height:auto;
-        background:none;
-      }
-      .hero-title,
-      .hero-subtitle{
-        color:#000;
-        text-shadow:none;
-      }
-    }
-
-    @media (min-width: 760px){
-      .hero-grid{
-        grid-template-columns:1.08fr .92fr;
-      }
-
-      .hero-dashboard{
-        grid-template-columns:repeat(3, minmax(0, 1fr));
-      }
-
-      .grid.two{
-        grid-template-columns:repeat(2, minmax(0, 1fr));
-      }
-
-      .grid.three{
-        grid-template-columns:repeat(3, minmax(0, 1fr));
-      }
-
-      .about-grid{
-        grid-template-columns:1.15fr .85fr;
-      }
-
-      .stats-grid{
-        grid-template-columns:repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    @media (min-width: 1024px){
-      .hero{
-        min-height:96vh;
-      }
-
-      .hero-inner{
-        padding-top:132px;
-        padding-bottom:38px;
-      }
-
-      .hero-subtitle{
-        font-size:1.12rem;
-      }
+    @media (max-width:640px){
+      .brand-title{ font-size:.9rem; }
+      .brand-sub{ display:none; }
+      .top-nav{ max-width:56%; }
+      .top-nav a{ font-size:.78rem; padding:6px 10px; }
+      .hero-inner{ padding-top:104px; padding-bottom:24px; }
+      .hero-title{ font-size:2.45rem; }
+      .hero-subtitle{ font-size:.97rem; }
+      .btn{ min-height:40px; font-size:.84rem; }
+      .section-nav a{ font-size:.84rem; }
     }
 
     @media (prefers-reduced-motion: reduce){
-      html{
-        scroll-behavior:auto;
-      }
+      html{ scroll-behavior:auto; }
       .site-header,
-      .card,
       .btn,
-      .nav a,
-      .nav button,
-      .section-nav a{
-        transition:none;
-      }
+      .card,
+      .top-nav a,
+      .section-nav a{ transition:none; }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">本文へスキップ</a>
 
   <header class="site-header" id="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-dot" aria-hidden="true"></span>
         <div class="brand-text">
           <p class="brand-title">WESTPAC SENTINEL</p>
           <p class="brand-sub">世界経済・安全保障構造モニター</p>
         </div>
       </div>
 
-      <div class="nav-wrap" aria-label="グローバルナビゲーション">
-        <nav class="nav" id="top-nav">
-          <a href="#overview">概要</a>
-          <a href="#dashboard">Dashboard</a>
-          <a href="#areas">研究領域</a>
-          <a href="#analysis">分析</a>
-          <a href="#themes">テーマ</a>
-          <a href="#regions">地域</a>
-          <a href="#methodology">方法論</a>
-          <a href="#data">データ</a>
-          <a href="#about">About</a>
-          <a href="#archive">Archive</a>
-          <a href="#note">Note</a>
-          <button type="button" id="print-btn">PDF出力</button>
-        </nav>
-      </div>
+      <nav class="top-nav" id="top-nav" aria-label="上部ナビゲーション">
+        <a href="#overview">概要</a>
+        <a href="#dashboard">ダッシュボード</a>
+        <a href="#areas">研究領域</a>
+        <a href="#analysis">最新分析</a>
+        <a href="#data">データ</a>
+      </nav>
     </div>
   </header>
 
   <section class="hero" id="top">
     <div class="hero-inner">
       <div class="container">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <div class="eyebrow">Independent Research Project</div>
+        <div class="eyebrow">Independent Research Project</div>
 
-            <h1 class="hero-title">WESTPAC<br>SENTINEL</h1>
+        <h1 class="hero-title">WESTPAC<br>SENTINEL</h1>
 
-            <p class="hero-subtitle">
-              米国グローバルシステムと中国グローバルシステムの再編を、
-              経済と安全保障の両面から統合的に捉える独立研究サイト。
-            </p>
+        <p class="hero-subtitle">
+          米国グローバルシステムと中国グローバルシステムの再編を、
+          経済と安全保障の両面から統合的に捉える独立研究サイト。
+        </p>
 
-            <div class="cta-row">
-              <a class="btn primary" href="#areas">研究領域を見る</a>
-              <a class="btn" href="#dashboard">研究ダッシュボードを見る</a>
-            </div>
+        <p class="hero-meta">最終更新：2026-03-10</p>
 
-            <div class="theme-pills">
-              <span class="theme-pill">米国グローバルシステム</span>
-              <span class="theme-pill">中国グローバルシステム</span>
-              <span class="theme-pill">経済構造の再編</span>
-              <span class="theme-pill">軍事・安全保障構造</span>
-            </div>
-
-            <div class="search-wrap">
-              <div class="search-box">
-                <input id="site-search" type="search" placeholder="検索：決済、物流、制裁、台湾、エネルギー、同盟..." aria-label="サイト内検索" />
-              </div>
-              <div class="search-meta" id="search-meta" aria-live="polite">全件表示</div>
-            </div>
-          </div>
-
-          <div class="hero-dashboard" aria-label="研究ダッシュボード">
-            <div class="dash-card">
-              <p class="dash-label">主対象</p>
-              <p class="dash-value">経済・安全保障構造の再編</p>
-            </div>
-            <div class="dash-card">
-              <p class="dash-label">分析軸</p>
-              <p class="dash-value">米国システム / 中国システム</p>
-            </div>
-            <div class="dash-card">
-              <p class="dash-label">更新状態</p>
-              <p class="dash-value">即時運用中</p>
-              <div class="status-row">
-                <span class="status-pill good">ページ稼働</span>
-                <span class="status-pill warn">分析拡張余地あり</span>
-              </div>
-            </div>
-            <div class="dash-card">
-              <p class="dash-label">重点地域</p>
-              <p class="dash-value">西太平洋 / インド太平洋 / 主要動脈</p>
-            </div>
-            <div class="dash-card">
-              <p class="dash-label">重点テーマ</p>
-              <p class="dash-value">決済・物流・資源・安全保障</p>
-            </div>
-            <div class="dash-card">
-              <p class="dash-label">データ状態</p>
-              <p class="dash-value">基盤表示・整理ルール実装済み</p>
-            </div>
-          </div>
+        <div class="cta-row">
+          <a class="btn primary" href="#analysis">最新分析へ</a>
+          <a class="btn" href="#dashboard">概要指標へ</a>
         </div>
 
         <nav class="section-nav" aria-label="セクションナビゲーション">
           <div class="section-nav-inner" id="section-nav">
             <a href="#overview">概要</a>
-            <a href="#premise">基本視点</a>
-            <a href="#trust">信頼性</a>
-            <a href="#dashboard">Dashboard</a>
+            <a href="#dashboard">ダッシュボード</a>
             <a href="#areas">研究領域</a>
             <a href="#analysis">最新分析</a>
-            <a href="#themes">テーマ別</a>
-            <a href="#regions">地域別</a>
             <a href="#methodology">方法論</a>
             <a href="#data">データ基盤</a>
             <a href="#about">About</a>
-            <a href="#archive">Archive</a>
-            <a href="#note">Note</a>
           </div>
         </nav>
-
-        <div id="no-results" class="no-results is-hidden">
-          該当する項目は見つかりません。別のキーワードで検索してください。
-        </div>
       </div>
     </div>
   </section>
 
-  <main class="container">
+  <main class="container" id="main-content">
 
     <section class="section" id="overview">
       <p class="section-kicker">Overview</p>
@@ -941,7 +540,7 @@
         日本語で体系的に把握するための分析基盤です。
       </p>
 
-      <div class="panel search-target" data-search="プロジェクト概要 目的 世界経済 安全保障 再編 日本語 分析基盤">
+      <div class="panel">
         <p>
           WESTPAC SENTINEL は、世界経済秩序と安全保障環境を分離せず、
           相互に接続された一つの構造として捉えます。決済、貿易、エネルギー、資源、物流、制裁、
@@ -949,809 +548,39 @@
           本サイトは、それらの重なりを可視化し、分析・比較・記録の基盤を提供します。
         </p>
       </div>
-
-      <div class="grid three" style="margin-top:16px;">
-        <div class="card search-target" data-search="このサイトで何が分かるか 米中 二重構造">
-          <h3>このサイトで何が分かるか</h3>
-          <p>米中二重構造の形成、国家依存の方向、資源・決済・物流・安全保障の結節点を横断的に把握できます。</p>
-        </div>
-        <div class="card search-target" data-search="なぜ米中二重構造で見るか">
-          <h3>なぜ米中二重構造で見るか</h3>
-          <p>通貨、技術、制裁、資源調達、同盟、海上交通路が再編されているため、単一のグローバル市場観では捉えきれません。</p>
-        </div>
-        <div class="card search-target" data-search="経済と安全保障を統合して見る理由">
-          <h3>なぜ経済と安全保障を統合するか</h3>
-          <p>経済指標だけでは秩序変化の速度を測れず、安全保障だけでも依存構造を読めないため、両者の統合観測が必要です。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="premise">
-      <p class="section-kicker">Core Premise</p>
-      <h2 class="section-title">基本視点</h2>
-
-      <div class="panel search-target" data-search="基本視点 経済と軍事 国際秩序">
-        <div class="quote-box">
-          経済と軍事は分離していない。  
-          国際秩序の変化を理解するには、経済圏の再編と安全保障圏の変化を同時に分析する必要がある。
-        </div>
-        <p style="margin-top:18px;">
-          本サイトは、国際政治経済と安全保障を横断する構造変化を、
-          分断されたニュースではなく、相互に結びついたシステムとして把握することを目的とします。
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="trust">
-      <p class="section-kicker">Trust & Rules</p>
-      <h2 class="section-title">信頼性・運用原則</h2>
-      <p class="section-intro">
-        独立研究プロジェクトとして、研究対象、分析対象、情報方針、表記ルール、更新ルールを明示します。
-      </p>
-
-      <div class="grid two">
-        <div class="card search-target" data-search="独立研究 研究対象 分析対象">
-          <h3>研究対象と分析対象</h3>
-          <ul class="list-clean">
-            <li>研究対象：世界経済秩序と安全保障構造の再編</li>
-            <li>分析対象：米国中心システムと中国中心システムの接続様式</li>
-            <li>観測単位：国家、地域、ネットワーク、物流動脈、制度基盤</li>
-          </ul>
-        </div>
-
-        <div class="card search-target" data-search="一次情報 二次情報 仮説 推定 事実">
-          <h3>情報と記述の区別</h3>
-          <ul class="list-clean">
-            <li>一次情報・二次情報・分析コメントを区別して表示</li>
-            <li>推定・仮説・確認済み事実を混同しない</li>
-            <li>不明点は不明として示し、欠損を欠損として扱う</li>
-          </ul>
-        </div>
-
-        <div class="card search-target" data-search="更新ルール 更新対象 更新記録">
-          <h3>更新ルール</h3>
-          <ul class="list-clean">
-            <li>ページ本文、方法論、データ要約、更新記録を分けて管理</li>
-            <li>分析更新とデータ更新の差異を明示</li>
-            <li>主要変更はアーカイブ欄に記録</li>
-          </ul>
-        </div>
-
-        <div class="card search-target" data-search="用語統一 国名表記 米中表記 ルール">
-          <h3>表記ルール</h3>
-          <ul class="list-clean">
-            <li>国名・地域名・制度名の表記を統一</li>
-            <li>米国システム / 中国システムの用語を固定</li>
-            <li>速報・確報・推計・代理変数を明示</li>
-          </ul>
-        </div>
-      </div>
     </section>
 
     <section class="section" id="dashboard">
-      <p class="section-kicker">Research Dashboard</p>
+      <p class="section-kicker">Dashboard</p>
       <h2 class="section-title">研究ダッシュボード</h2>
       <p class="section-intro">
         本サイトの分析焦点、更新状態、観測対象、データ整理状況を一覧で確認できます。
       </p>
 
       <div class="stats-grid">
-        <div class="stat-tile search-target" data-search="主対象 経済安全保障構造 再編">
+        <div class="stat-tile">
           <strong>主対象</strong>
           <span>経済・安全保障構造の再編</span>
         </div>
-        <div class="stat-tile search-target" data-search="分析軸 米国 中国">
+        <div class="stat-tile">
           <strong>分析軸</strong>
           <span>米国システム / 中国システム</span>
         </div>
-        <div class="stat-tile search-target" data-search="重点地域 西太平洋 インド太平洋">
+        <div class="stat-tile">
           <strong>重点地域</strong>
-          <span>西太平洋 / インド太平洋 / 主要海上動脈</span>
+          <span>西太平洋 / インド太平洋</span>
         </div>
-        <div class="stat-tile search-target" data-search="重点テーマ 決済 物流 資源 制裁">
+        <div class="stat-tile">
           <strong>重点テーマ</strong>
-          <span>決済 / 物流 / 資源 / 制裁 / 同盟</span>
+          <span>決済 / 物流 / 資源 / 安全保障</span>
         </div>
-        <div class="stat-tile search-target" data-search="公開言語 日本語">
+        <div class="stat-tile">
           <strong>公開言語</strong>
           <span>日本語</span>
         </div>
-        <div class="stat-tile search-target" data-search="データ整理 ルール 実装">
-          <strong>データ整理状態</strong>
-          <span>分類・更新・表記ルール実装済み</span>
+        <div class="stat-tile">
+          <strong>更新状態</strong>
+          <span>初期運用中</span>
         </div>
       </div>
     </section>
-        <section class="section" id="areas">
-      <p class="section-kicker">Research Areas</p>
-      <h2 class="section-title">研究領域</h2>
-      <p class="section-intro">
-        経済構造と安全保障構造の交差点に位置する主要テーマを、四つの領域から整理します。
-      </p>
-
-      <div class="grid two">
-        <article class="card search-target" data-search="米国 グローバルシステム ドル決済 同盟 技術管理 制裁 資源">
-          <p class="card-meta">Area 01</p>
-          <h3>米国グローバルシステム</h3>
-          <p>
-            ドル決済、同盟網、技術管理、制裁、資源取引、前方展開能力を含む
-            米国中心の経済・安全保障ネットワークを分析します。
-          </p>
-          <p class="muted-note">主論点：決済覇権、制度力、技術制御、同盟接続</p>
-        </article>
-
-        <article class="card search-target" data-search="中国 グローバルシステム 人民元 一帯一路 物流 資源調達">
-          <p class="card-meta">Area 02</p>
-          <h3>中国グローバルシステム</h3>
-          <p>
-            人民元決済、物流接続、資源調達、一帯一路、周辺・外縁部の戦略的プレゼンスを含む
-            中国中心の構造形成を分析します。
-          </p>
-          <p class="muted-note">主論点：通貨圏形成、供給網、外縁接続、戦略的投資</p>
-        </article>
-
-        <article class="card search-target" data-search="経済構造 再編 サプライチェーン 海上交通路 鉱物 エネルギー">
-          <p class="card-meta">Area 03</p>
-          <h3>経済構造の再編</h3>
-          <p>
-            サプライチェーン、海上交通路、重要鉱物、エネルギー、国別依存度の変化を通じて、
-            複数圏への再編を把握します。
-          </p>
-          <p class="muted-note">主論点：依存の方向、代替可能性、ボトルネック、分岐速度</p>
-        </article>
-
-        <article class="card search-target" data-search="軍事 安全保障構造 同盟 抑止 軍事バランス 地域紛争">
-          <p class="card-meta">Area 04</p>
-          <h3>軍事・安全保障構造</h3>
-          <p>
-            同盟、抑止、軍事バランス、地域紛争、経済ブロック化の相互作用を分析し、
-            安全保障環境の変容を追跡します。
-          </p>
-          <p class="muted-note">主論点：抑止、前方展開、危機波及、経済戦との連結</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="analysis">
-      <p class="section-kicker">Latest Analysis</p>
-      <h2 class="section-title">最新分析</h2>
-      <p class="section-intro">
-        初期運用段階では、重点テーマの配置と分析導線を先行整備しています。
-      </p>
-
-      <div class="grid three">
-        <article class="card search-target" data-search="比較分析 米国 中国 グローバルシステム 決済 物流 同盟">
-          <p class="card-meta">Forthcoming Analysis</p>
-          <h3>米国グローバルシステムと中国グローバルシステムの比較分析</h3>
-          <p>
-            決済、物流、技術管理、同盟構造を横断し、
-            両システムの接続様式と脆弱性を比較します。
-          </p>
-        </article>
-
-        <article class="card search-target" data-search="決済ネットワーク ドル 人民元 国際秩序">
-          <p class="card-meta">Forthcoming Analysis</p>
-          <h3>決済ネットワーク分岐が国際秩序に与える影響</h3>
-          <p>
-            ドル圏・人民元圏・第三極の形成可能性を、
-            制度と実務の両面から分析します。
-          </p>
-        </article>
-
-        <article class="card search-target" data-search="海上交通路 エネルギー輸送 ホルムズ マラッカ 西太平洋">
-          <p class="card-meta">Forthcoming Analysis</p>
-          <h3>海上交通路・エネルギー輸送・安全保障環境の連動分析</h3>
-          <p>
-            ホルムズ、マラッカ、西太平洋を含む主要動脈の
-            脆弱性と代替性を検討します。
-          </p>
-        </article>
-      </div>
-
-      <div class="grid two" style="margin-top:16px;">
-        <article class="card search-target" data-search="最新分析予定 台湾有事 制裁 技術管理 半導体">
-          <h3>重点分析予定</h3>
-          <ul class="list-clean">
-            <li>台湾有事シナリオと経済秩序の分岐</li>
-            <li>制裁設計と通貨・決済回避構造</li>
-            <li>技術管理と半導体供給網の再配置</li>
-            <li>エネルギー動脈と海上保険リスクの再評価</li>
-          </ul>
-        </article>
-
-        <article class="card search-target" data-search="短報 長文分析 更新導線">
-          <h3>分析公開形式</h3>
-          <ul class="list-clean">
-            <li>短報：状況変化の速報整理</li>
-            <li>中編：テーマ別の構造分析</li>
-            <li>長文：統合分析・比較分析・シナリオ分析</li>
-            <li>可視化：比較表・マップ・ネットワーク図</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-        <section class="section" id="themes">
-      <p class="section-kicker">Themes</p>
-      <h2 class="section-title">テーマ別整理</h2>
-      <p class="section-intro">
-        主要論点を、テーマ単位で横断的に追跡できるよう設計しています。
-      </p>
-
-      <div class="tag-list search-target" data-search="通貨 決済 エネルギー 物流 半導体 制裁 同盟 台湾有事 重要鉱物">
-        <span class="tag">通貨・決済</span>
-        <span class="tag">エネルギー</span>
-        <span class="tag">物流・海上交通路</span>
-        <span class="tag">重要鉱物</span>
-        <span class="tag">半導体</span>
-        <span class="tag">制裁</span>
-        <span class="tag">技術管理</span>
-        <span class="tag">同盟・抑止</span>
-        <span class="tag">台湾有事シナリオ</span>
-      </div>
-
-      <div class="grid three" style="margin-top:16px;">
-        <div class="card search-target" data-search="通貨 決済 ドル 人民元">
-          <h3>通貨・決済</h3>
-          <p>
-            ドル圏、人民元圏、代替決済、制度的制裁耐性、
-            送金・清算ネットワークの分岐を扱います。
-          </p>
-        </div>
-
-        <div class="card search-target" data-search="エネルギー 原油 LNG 輸送 chokepoint">
-          <h3>エネルギー</h3>
-          <p>
-            原油・LNG・海上輸送・保険・備蓄・代替調達の
-            結合構造を観測します。
-          </p>
-        </div>
-
-        <div class="card search-target" data-search="物流 海上交通路 港湾 航路">
-          <h3>物流・海上交通路</h3>
-          <p>
-            港湾、海峡、輸送路、ボトルネック、保険、
-            リスク分散の実行可能性を分析します。
-          </p>
-        </div>
-
-        <div class="card search-target" data-search="半導体 技術管理 輸出規制">
-          <h3>半導体・技術管理</h3>
-          <p>
-            輸出規制、製造能力、装置依存、先端技術制約、
-            デカップリング速度を扱います。
-          </p>
-        </div>
-
-        <div class="card search-target" data-search="制裁 経済戦 迂回">
-          <h3>制裁・経済戦</h3>
-          <p>
-            制裁設計、回避ルート、第三国経由、制度的耐性、
-            執行強度と波及範囲を追跡します。
-          </p>
-        </div>
-
-        <div class="card search-target" data-search="同盟 抑止 前方展開 軍事バランス">
-          <h3>同盟・抑止</h3>
-          <p>
-            同盟接続、前方展開、危機波及、海空優勢、
-            軍事バランス変化を重視します。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="regions">
-      <p class="section-kicker">Regions</p>
-      <h2 class="section-title">地域別整理</h2>
-      <p class="section-intro">
-        重点地域ごとに、経済依存と安全保障環境の連動を比較します。
-      </p>
-
-      <div class="grid three">
-        <article class="card search-target" data-search="日本 東アジア 西太平洋">
-          <h3>日本・西太平洋</h3>
-          <p>
-            対米依存、対中依存、エネルギー動脈、海上輸送、
-            同盟、台湾有事波及を重視します。
-          </p>
-        </article>
-
-        <article class="card search-target" data-search="中国 台湾 東シナ海 南シナ海">
-          <h3>中国・台湾・周辺海域</h3>
-          <p>
-            周辺海空域、抑止構造、産業・技術・物流の接続、
-            危機時の分岐を扱います。
-          </p>
-        </article>
-
-        <article class="card search-target" data-search="ASEAN インド太平洋 海峡 港湾">
-          <h3>ASEAN・インド太平洋</h3>
-          <p>
-            海峡、港湾、物流接続、投資、軍事プレゼンス、
-            資源供給の役割を分析します。
-          </p>
-        </article>
-
-        <article class="card search-target" data-search="中東 ホルムズ 原油 LNG">
-          <h3>中東</h3>
-          <p>
-            ホルムズ海峡、原油・LNG供給、海上保険、
-            制裁、輸送リスクを重点観測します。
-          </p>
-        </article>
-
-        <article class="card search-target" data-search="欧州 制裁 ロシア 代替市場">
-          <h3>欧州</h3>
-          <p>
-            制裁政策、エネルギー代替、市場再接続、
-            対中・対米の政策差を比較します。
-          </p>
-        </article>
-
-        <article class="card search-target" data-search="グローバルサウス 第三国 迂回">
-          <h3>グローバルサウス</h3>
-          <p>
-            第三国経由、迂回接続、非同盟的選好、
-            資源・物流・決済上の役割を整理します。
-          </p>
-        </article>
-      </div>
-
-      <div class="grid two" style="margin-top:16px;">
-        <div class="card search-target" data-search="比較観点 地域比較 依存 安全保障">
-          <h3>地域比較の観点</h3>
-          <ul class="list-clean">
-            <li>対米・対中依存の方向</li>
-            <li>資源・物流の代替可能性</li>
-            <li>危機時の安全保障波及</li>
-            <li>制度・通貨・制裁耐性</li>
-          </ul>
-        </div>
-
-        <div class="card search-target" data-search="地域ページ 構成 国別比較 ネットワーク比較">
-          <h3>地域ページの基本構成</h3>
-          <ul class="list-clean">
-            <li>地域概観</li>
-            <li>主要国家・港湾・海峡</li>
-            <li>依存構造とボトルネック</li>
-            <li>安全保障環境とシナリオ分岐</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-        <section class="section" id="methodology">
-      <p class="section-kicker">Methodology</p>
-      <h2 class="section-title">方法論</h2>
-      <p class="section-intro">
-        公開統計と公開安全保障情報を統合し、定量・定性の両面から世界構造の変化を分析します。
-      </p>
-
-      <div class="grid three">
-        <div class="card search-target" data-search="情報源 政府統計 国際機関 貿易 決済 エネルギー">
-          <h3>主な情報源</h3>
-          <ul class="list-clean">
-            <li>各国政府統計</li>
-            <li>国際機関データ</li>
-            <li>貿易・決済関連データ</li>
-            <li>エネルギー・資源関連情報</li>
-            <li>公開安全保障情報</li>
-          </ul>
-        </div>
-
-        <div class="card search-target" data-search="分析手法 比較 時系列 ネットワーク シナリオ">
-          <h3>分析手法</h3>
-          <ul class="list-clean">
-            <li>国別依存構造の比較</li>
-            <li>決済・貿易・資源ネットワーク分析</li>
-            <li>経済指標と安全保障指標の統合評価</li>
-            <li>シナリオ別の構造変化分析</li>
-          </ul>
-        </div>
-
-        <div class="card search-target" data-search="制約 統計公表 非公開 欠損 定義差">
-          <h3>分析の制約</h3>
-          <ul class="list-clean">
-            <li>統計公表の時間差</li>
-            <li>非公開政策・非公開協議の存在</li>
-            <li>データ欠損や定義差</li>
-            <li>制度変更反映の遅れ</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="grid two" style="margin-top:16px;">
-        <div class="card search-target" data-search="再現可能性 一次情報 URL 更新日">
-          <h3>再現可能性</h3>
-          <p>
-            一次情報、更新日、定義差、速報・確報、
-            推定・代理変数の有無を区別して整理します。
-          </p>
-        </div>
-
-        <div class="card search-target" data-search="用語定義 比較可能性">
-          <h3>比較可能性</h3>
-          <p>
-            国別比較、時系列比較、制度比較が可能となるよう、
-            定義と表記を統一します。
-          </p>
-        </div>
-      </div>
-
-      <div class="panel search-target" data-search="方法論 補足 推論範囲 仮説">
-        <div class="table-wrap">
-          <table class="table" aria-label="方法論補足">
-            <thead>
-              <tr>
-                <th>区分</th>
-                <th>内容</th>
-                <th>表示方針</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>事実</td>
-                <td>公開情報に基づく確認事項</td>
-                <td>本文で明示</td>
-              </tr>
-              <tr>
-                <td>推定</td>
-                <td>既存情報からの合理的推定</td>
-                <td>推定として表示</td>
-              </tr>
-              <tr>
-                <td>仮説</td>
-                <td>将来シナリオや構造仮説</td>
-                <td>仮説として区別</td>
-              </tr>
-              <tr>
-                <td>欠損</td>
-                <td>未確認・未公表・未取得</td>
-                <td>欠損として維持</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="data">
-      <p class="section-kicker">Data Platform</p>
-      <h2 class="section-title">データ基盤</h2>
-      <p class="section-intro">
-        国別配置、対米依存、対中依存、エネルギー依存、安全保障関係の基礎データを整理する枠組みです。
-      </p>
-
-      <div class="grid two">
-        <div class="card search-target" data-search="国別配置 対米依存 対中依存 エネルギー依存 安全保障関係">
-          <h3>整備予定データ項目</h3>
-          <ul class="list-clean">
-            <li>国別配置</li>
-            <li>対米依存度</li>
-            <li>対中依存度</li>
-            <li>エネルギー依存</li>
-            <li>安全保障関係</li>
-            <li>主要ネットワーク指標</li>
-          </ul>
-        </div>
-
-        <div class="card search-target" data-search="一次情報優先 比較可能性 更新継続">
-          <h3>データ整備方針</h3>
-          <div class="mini-list">
-            <div class="mini-item">
-              <strong>一次情報優先</strong>
-              <span>政府・国際機関・公的統計を基軸とします。</span>
-            </div>
-            <div class="mini-item">
-              <strong>比較可能性重視</strong>
-              <span>国別比較と時系列比較が可能な形で整理します。</span>
-            </div>
-            <div class="mini-item">
-              <strong>更新継続</strong>
-              <span>分析ページと連動しながら順次更新します。</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel search-target" data-search="速報 確報 推計 実測 代理変数">
-        <div class="table-wrap">
-          <table class="table" aria-label="データ整理ルール">
-            <thead>
-              <tr>
-                <th>項目</th>
-                <th>扱い</th>
-                <th>表示方針</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>速報 / 確報</td>
-                <td>区別する</td>
-                <td>更新時に明示</td>
-              </tr>
-              <tr>
-                <td>推計 / 実測</td>
-                <td>区別する</td>
-                <td>本文または注記で明示</td>
-              </tr>
-              <tr>
-                <td>代理変数</td>
-                <td>必要時のみ使用</td>
-                <td>代理であることを表示</td>
-              </tr>
-              <tr>
-                <td>欠損</td>
-                <td>欠損として維持</td>
-                <td>無理に補完しない</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="grid three" style="margin-top:16px;">
-        <div class="card search-target" data-search="対米依存 データ">
-          <h3>対米依存</h3>
-          <p>輸出、輸入、決済、技術、同盟の複合依存を整理します。</p>
-        </div>
-        <div class="card search-target" data-search="対中依存 データ">
-          <h3>対中依存</h3>
-          <p>貿易、供給網、資源加工、中間財、物流接続を重視します。</p>
-        </div>
-        <div class="card search-target" data-search="エネルギー依存 データ">
-          <h3>エネルギー依存</h3>
-          <p>原油、LNG、輸送海域、備蓄、代替調達能力を追跡します。</p>
-        </div>
-      </div>
-    </section>
-        <section class="section" id="about">
-      <p class="section-kicker">About</p>
-      <h2 class="section-title">本プロジェクトについて</h2>
-      <p class="section-intro">
-        WESTPAC SENTINEL は、世界経済秩序と安全保障構造の再編を、日本語で継続的に追跡する独立研究プロジェクトです。
-      </p>
-
-      <div class="about-grid">
-        <div class="panel search-target" data-search="about プロジェクト 目的 独立研究 米中競争 経済安全保障">
-          <p>
-            本サイトは、米中競争、経済安全保障、決済ネットワーク、物流、資源、エネルギー、軍事環境の変化を、
-            分断されたトピックとしてではなく、一つの連結構造として把握することを目指します。
-            分析本文、方法論補遺、データ整理、更新記録を一体として管理し、
-            長期的な構造変化の追跡に耐える日本語研究基盤として運用します。
-          </p>
-        </div>
-
-        <div class="card search-target" data-search="運用方針 日本語 一次情報 統合把握 長期変化">
-          <h3>運用方針</h3>
-          <ul class="list-clean">
-            <li>日本語で継続更新</li>
-            <li>一次情報を優先</li>
-            <li>経済と安全保障を統合把握</li>
-            <li>長期構造変化を追跡</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="grid two" style="margin-top:16px;">
-        <div class="card search-target" data-search="このサイトの目的 なぜ必要か">
-          <h3>このサイトの目的</h3>
-          <p>
-            世界を米中二重構造とその周辺再接続として把握し、
-            経済安全保障上の依存・脆弱性・分岐を体系的に示すことを目的とします。
-          </p>
-        </div>
-
-        <div class="card search-target" data-search="読者 研究者 政策 経済安全保障">
-          <h3>想定読者</h3>
-          <p>
-            国際政治経済、安全保障、経済安全保障、貿易、資源、通貨、物流に関心を持つ読者、
-            研究者、実務者を想定しています。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="archive">
-      <p class="section-kicker">Archive</p>
-      <h2 class="section-title">更新記録・アーカイブ</h2>
-      <p class="section-intro">
-        公開段階では、更新履歴、分析公開形式、拡張対象をここに集約します。
-      </p>
-
-      <div class="grid two">
-        <div class="card search-target" data-search="更新記録 初期ページ 公開 骨格整備">
-          <h3>更新記録</h3>
-          <ul class="list-clean">
-            <li>v1.0 初期ページ公開</li>
-            <li>フル幅ヒーロー / 縮小ヘッダー / 研究ダッシュボード実装</li>
-            <li>研究領域 / 分析 / 方法論 / データ基盤 / アーカイブ骨格整備</li>
-          </ul>
-        </div>
-
-        <div class="card search-target" data-search="アーカイブ 公開形式 短報 長文 比較分析">
-          <h3>公開形式</h3>
-          <ul class="list-clean">
-            <li>短報：状況変化の速報整理</li>
-            <li>中編：テーマ別の構造分析</li>
-            <li>長文：統合分析・比較分析・シナリオ分析</li>
-          </ul>
-        </div>
-
-        <div class="card search-target" data-search="将来拡張 国別ページ テーマ別ページ 可視化">
-          <h3>拡張対象</h3>
-          <ul class="list-clean">
-            <li>国別ページ</li>
-            <li>テーマ別ページ</li>
-            <li>比較表・地図・ネットワーク図</li>
-          </ul>
-        </div>
-
-        <div class="card search-target" data-search="注意事項 独立研究 推定 仮説 一次情報">
-          <h3>注意事項</h3>
-          <ul class="list-clean">
-            <li>本サイトは公開情報を基礎とする独立研究基盤です。</li>
-            <li>推定・仮説・一次情報は区別して表記します。</li>
-            <li>データ欠損や定義差は明示します。</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="note">
-      <p class="section-kicker">Note</p>
-      <h2 class="section-title">連絡・利用・注記</h2>
-      <p class="section-intro">
-        本サイトの性格、利用上の注意、記述の扱いを明示します。
-      </p>
-
-      <div class="grid two">
-        <div class="card search-target" data-search="免責 利用条件 注記">
-          <h3>利用上の注意</h3>
-          <ul class="list-clean">
-            <li>本サイトは研究・分析目的の公開ページです。</li>
-            <li>投資・法務・政策決定の直接助言を目的としません。</li>
-            <li>記載内容は更新により変更される場合があります。</li>
-          </ul>
-        </div>
-
-        <div class="card search-target" data-search="連絡先 連絡 未設置">
-          <h3>連絡について</h3>
-          <p>
-            初期公開段階では、専用の連絡窓口は未設置です。
-            将来的に必要が生じた場合、外部導線を追加します。
-          </p>
-          <p class="muted-note">現段階では公開情報ベースの研究基盤として運用します。</p>
-        </div>
-      </div>
-    </section>
-      </main>
-
-  <footer class="footer">
-    <div class="container">
-      <strong>WESTPAC SENTINEL</strong> / Independent Research Project<br />
-      世界経済・安全保障構造モニター
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      const header = document.getElementById('site-header');
-      const topNavLinks = Array.from(document.querySelectorAll('#top-nav a'));
-      const sectionNavLinks = Array.from(document.querySelectorAll('#section-nav a'));
-      const allNavLinks = [...topNavLinks, ...sectionNavLinks];
-      const sections = Array.from(document.querySelectorAll('main .section'));
-      const printBtn = document.getElementById('print-btn');
-      const searchInput = document.getElementById('site-search');
-      const searchMeta = document.getElementById('search-meta');
-      const noResults = document.getElementById('no-results');
-      const searchTargets = Array.from(document.querySelectorAll('.search-target'));
-
-      function setCompactHeader() {
-        if (!header) return;
-        if (window.scrollY > 24) {
-          header.classList.add('is-compact');
-        } else {
-          header.classList.remove('is-compact');
-        }
-      }
-
-      function clearActive() {
-        allNavLinks.forEach(link => link.classList.remove('active'));
-      }
-
-      function setActiveById(id) {
-        clearActive();
-        allNavLinks.forEach(link => {
-          if (link.getAttribute('href') === '#' + id) {
-            link.classList.add('active');
-          }
-        });
-      }
-
-      function normalize(text) {
-        return String(text || '')
-          .toLowerCase()
-          .replace(/\s+/g, ' ')
-          .trim();
-      }
-
-      function applySearch() {
-        if (!searchInput) return;
-
-        const query = normalize(searchInput.value);
-        let visibleCount = 0;
-
-        searchTargets.forEach(el => {
-          const dataText = el.getAttribute('data-search') || '';
-          const haystack = normalize(dataText + ' ' + el.textContent);
-          const matched = !query || haystack.includes(query);
-          el.classList.toggle('is-hidden', !matched);
-          if (matched) visibleCount += 1;
-        });
-
-        if (!query) {
-          if (searchMeta) searchMeta.textContent = '全件表示';
-          if (noResults) noResults.classList.add('is-hidden');
-          return;
-        }
-
-        if (visibleCount === 0) {
-          if (searchMeta) searchMeta.textContent = '0件';
-          if (noResults) noResults.classList.remove('is-hidden');
-        } else {
-          if (searchMeta) searchMeta.textContent = visibleCount + '件表示';
-          if (noResults) noResults.classList.add('is-hidden');
-        }
-      }
-
-      function initIntersection() {
-        if (!('IntersectionObserver' in window)) {
-          setActiveById('overview');
-          return;
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-          const visible = entries
-            .filter(entry => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-          if (visible.length > 0) {
-            setActiveById(visible[0].target.id);
-          }
-        }, {
-          rootMargin: '-25% 0px -55% 0px',
-          threshold: [0.15, 0.35, 0.6]
-        });
-
-        sections.forEach(section => observer.observe(section));
-      }
-
-      setCompactHeader();
-      window.addEventListener('scroll', setCompactHeader, { passive: true });
-      window.addEventListener('load', setCompactHeader);
-
-      if (printBtn) {
-        printBtn.addEventListener('click', function () {
-          window.print();
-        });
-      }
-
-      if (searchInput) {
-        searchInput.addEventListener('input', applySearch);
-        searchInput.addEventListener('search', applySearch);
-      }
-
-      initIntersection();
-
-      if (location.hash) {
-        setActiveById(location.hash.replace('#', ''));
-      } else {
-        setActiveById('overview');
-      }
-
-      applySearch();
-    })();
-  </script>
-
-</body>
-</html>
