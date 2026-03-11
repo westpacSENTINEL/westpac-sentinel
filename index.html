@@ -27,12 +27,14 @@
       --shadow:0 16px 38px rgba(0,0,0,.28);
       --radius:22px;
       --max:1160px;
-      --header-h:72px;
+      --header-h:74px;
       --header-h-small:58px;
     }
 
     *{ box-sizing:border-box; }
+
     html{ scroll-behavior:smooth; }
+
     body{
       margin:0;
       color:var(--text);
@@ -95,31 +97,33 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
+      gap:14px;
     }
 
     .brand{
       min-width:0;
       display:flex;
       align-items:center;
-      gap:12px;
-      flex:1 1 auto;
+      gap:14px;
+      flex:0 0 auto;
     }
 
     .brand-dot{
-      width:16px;
-      height:16px;
+      width:18px;
+      height:18px;
       border-radius:50%;
       flex:0 0 auto;
       background:radial-gradient(circle at 35% 35%, #e3eef8, #8fb9d7 60%, #41617b 100%);
-      box-shadow:0 0 0 8px rgba(143,185,215,.10);
+      box-shadow:0 0 0 10px rgba(143,185,215,.10);
     }
 
-    .brand-text{ min-width:0; }
+    .brand-text{
+      min-width:0;
+    }
 
     .brand-title{
       margin:0;
-      font-size:1rem;
+      font-size:1.18rem;
       font-weight:900;
       letter-spacing:.08em;
       white-space:nowrap;
@@ -142,8 +146,8 @@
       gap:8px;
       overflow-x:auto;
       scrollbar-width:none;
-      flex:0 1 auto;
-      max-width:62%;
+      max-width:58%;
+      padding-bottom:2px;
     }
 
     .top-nav::-webkit-scrollbar{ display:none; }
@@ -166,13 +170,13 @@
 
     .hero{
       position:relative;
-      min-height:88vh;
+      min-height:92vh;
       display:flex;
       align-items:flex-end;
       border-bottom:1px solid var(--line);
       background:
-        linear-gradient(180deg, rgba(5,13,22,.20) 0%, rgba(5,13,22,.52) 52%, rgba(5,13,22,.92) 100%),
-        linear-gradient(90deg, rgba(5,13,22,.72) 0%, rgba(5,13,22,.22) 46%, rgba(5,13,22,.78) 100%),
+        linear-gradient(180deg, rgba(5,13,22,.18) 0%, rgba(5,13,22,.44) 42%, rgba(5,13,22,.90) 100%),
+        linear-gradient(90deg, rgba(5,13,22,.70) 0%, rgba(5,13,22,.24) 45%, rgba(5,13,22,.78) 100%),
         url("IMG_4057.jpeg") center center / cover no-repeat;
     }
 
@@ -181,14 +185,15 @@
       position:absolute;
       inset:0;
       pointer-events:none;
-      background:radial-gradient(circle at top left, rgba(143,185,215,.10), transparent 28%);
+      background:
+        radial-gradient(circle at top left, rgba(143,185,215,.10), transparent 28%);
     }
 
     .hero-inner{
       position:relative;
       z-index:2;
       width:100%;
-      padding:108px 0 24px;
+      padding:124px 0 26px;
     }
 
     .eyebrow{
@@ -198,7 +203,7 @@
       padding:8px 12px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.14);
-      background:rgba(8,17,27,.42);
+      background:rgba(8,17,27,.40);
       color:#dce8ef;
       font-size:.80rem;
       margin-bottom:16px;
@@ -213,20 +218,30 @@
       flex:0 0 auto;
     }
 
-    .hero-title{
+    .hero-brand{
       margin:0;
-      font-size:clamp(2.5rem, 11vw, 5rem);
-      line-height:1.02;
-      letter-spacing:.04em;
+      font-size:clamp(2.8rem, 12vw, 5.6rem);
+      line-height:0.96;
+      letter-spacing:.06em;
       font-weight:900;
+      text-transform:uppercase;
       text-shadow:0 10px 24px rgba(0,0,0,.24);
     }
 
+    .hero-page{
+      margin:20px 0 0;
+      color:#cfe0ec;
+      font-size:clamp(1rem, 2.6vw, 1.2rem);
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
     .hero-subtitle{
-      margin:18px 0 0;
+      margin:14px 0 0;
       max-width:760px;
-      color:#dce7ef;
-      font-size:clamp(1rem, 2.7vw, 1.08rem);
+      color:#e4edf4;
+      font-size:clamp(1rem, 2.7vw, 1.12rem);
     }
 
     .hero-meta{
@@ -268,7 +283,7 @@
     }
 
     .section-nav{
-      padding:16px 0 2px;
+      padding:18px 0 4px;
       overflow-x:auto;
       scrollbar-width:none;
     }
@@ -299,7 +314,9 @@
       border-color:var(--line-strong);
     }
 
-    main{ padding:18px 0 64px; }
+    main{
+      padding:18px 0 64px;
+    }
 
     .section{
       padding:40px 0 26px;
@@ -344,11 +361,22 @@
       box-shadow:var(--shadow);
     }
 
-    .panel p{ margin:0; color:#d7e2ea; }
+    .panel p{
+      margin:0;
+      color:#d7e2ea;
+    }
 
     .grid{
       display:grid;
       gap:16px;
+    }
+
+    .grid.two{
+      grid-template-columns:1fr;
+    }
+
+    .grid.three{
+      grid-template-columns:1fr;
     }
 
     .card{
@@ -367,6 +395,14 @@
       border-color:var(--line-strong);
     }
 
+    .card-meta{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:.80rem;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
     .card h3{
       margin:0 0 12px;
       font-size:1.08rem;
@@ -378,14 +414,6 @@
     .card p{
       margin:0;
       color:#cfdae4;
-    }
-
-    .card-meta{
-      margin:0 0 10px;
-      color:var(--muted);
-      font-size:.80rem;
-      letter-spacing:.06em;
-      text-transform:uppercase;
     }
 
     .stats-grid{
@@ -422,30 +450,6 @@
       margin-top:10px;
     }
 
-    .update-list{
-      display:grid;
-      gap:12px;
-    }
-
-    .update-item{
-      padding:14px 16px;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
-    }
-
-    .update-item strong{
-      display:block;
-      margin-bottom:4px;
-      color:#eef4f8;
-      font-size:.96rem;
-    }
-
-    .update-item span{
-      color:#cad7e1;
-      font-size:.90rem;
-    }
-
     .cta-grid{
       display:grid;
       gap:16px;
@@ -480,6 +484,30 @@
       font-size:.92rem;
     }
 
+    .update-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .update-item{
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+    }
+
+    .update-item strong{
+      display:block;
+      margin-bottom:4px;
+      color:#eef4f8;
+      font-size:.96rem;
+    }
+
+    .update-item span{
+      color:#cad7e1;
+      font-size:.90rem;
+    }
+
     .footer{
       border-top:1px solid var(--line);
       padding:28px 0 40px;
@@ -487,7 +515,9 @@
       font-size:.92rem;
     }
 
-    .footer strong{ color:#e8f1f7; }
+    .footer strong{
+      color:#e8f1f7;
+    }
 
     @media (min-width:760px){
       .grid.two{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
@@ -497,12 +527,13 @@
     }
 
     @media (max-width:640px){
-      .brand-title{ font-size:.9rem; }
+      .brand-title{ font-size:.92rem; }
       .brand-sub{ display:none; }
-      .top-nav{ max-width:58%; }
+      .top-nav{ max-width:56%; }
       .top-nav a{ font-size:.78rem; padding:6px 10px; }
-      .hero-inner{ padding-top:102px; padding-bottom:22px; }
-      .hero-title{ font-size:2.45rem; }
+      .hero-inner{ padding-top:112px; padding-bottom:22px; }
+      .hero-brand{ font-size:2.9rem; }
+      .hero-page{ font-size:.94rem; }
       .hero-subtitle{ font-size:.97rem; }
       .btn{ min-height:40px; font-size:.84rem; }
       .section-nav a{ font-size:.84rem; }
@@ -548,7 +579,8 @@
       <div class="container">
         <div class="eyebrow">Independent Research Project</div>
 
-        <h1 class="hero-title">WESTPAC<br>SENTINEL</h1>
+        <h1 class="hero-brand">WESTPAC<br>SENTINEL</h1>
+        <p class="hero-page">World Structure Monitor</p>
 
         <p class="hero-subtitle">
           世界経済秩序と安全保障構造の再編を、
@@ -641,29 +673,25 @@
       </p>
 
       <div class="grid two">
-        <article class="card">
-          <p class="card-meta">Area 01</p>
-          <h3>米国グローバルシステム</h3>
-          <p>ドル決済、同盟網、技術管理、制裁、前方展開能力を中核とする接続構造を観測します。</p>
-        </article>
+        <a class="cta-card" href="research-areas.html#us-system">
+          <strong>米国グローバルシステム</strong>
+          <span>ドル決済、同盟網、技術管理、制裁、前方展開能力を中核とする接続構造を観測します。</span>
+        </a>
 
-        <article class="card">
-          <p class="card-meta">Area 02</p>
-          <h3>中国グローバルシステム</h3>
-          <p>人民元接続、物流、資源調達、供給網、一帯一路的接続を中核とする構造を観測します。</p>
-        </article>
+        <a class="cta-card" href="research-areas.html#china-system">
+          <strong>中国グローバルシステム</strong>
+          <span>人民元接続、物流、資源調達、供給網、一帯一路的接続を中核とする構造を観測します。</span>
+        </a>
 
-        <article class="card">
-          <p class="card-meta">Area 03</p>
-          <h3>経済構造の再編</h3>
-          <p>貿易、サプライチェーン、海上交通路、資源とエネルギーの再配線を整理します。</p>
-        </article>
+        <a class="cta-card" href="research-areas.html#economic-restructuring">
+          <strong>経済構造の再編</strong>
+          <span>貿易、サプライチェーン、海上交通路、資源とエネルギーの再配線を整理します。</span>
+        </a>
 
-        <article class="card">
-          <p class="card-meta">Area 04</p>
-          <h3>軍事・安全保障構造</h3>
-          <p>同盟、抑止、基地、危機波及、台湾有事を含む安全保障環境の変化を整理します。</p>
-        </article>
+        <a class="cta-card" href="research-areas.html#security-structure">
+          <strong>軍事・安全保障構造</strong>
+          <span>同盟、抑止、基地、危機波及、台湾有事を含む安全保障環境の変化を整理します。</span>
+        </a>
       </div>
     </section>
 
