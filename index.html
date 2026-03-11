@@ -9,9 +9,9 @@
   <meta property="og:title" content="WESTPAC SENTINEL | 世界経済・安全保障構造モニター">
   <meta property="og:description" content="米国グローバルシステムと中国グローバルシステムの再編を、経済と安全保障の両面から分析する独立研究プロジェクト。">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="IMG_3831.jpeg">
+  <meta property="og:image" content="IMG_4057.jpeg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="IMG_3831.jpeg">
+  <meta name="twitter:image" content="IMG_4057.jpeg">
 
   <style>
     :root{
@@ -55,6 +55,7 @@
 
     img{ display:block; max-width:100%; }
     a{ color:inherit; text-decoration:none; }
+
     .container{
       width:min(var(--max), calc(100% - 28px));
       margin-inline:auto;
@@ -64,11 +65,11 @@
       position:absolute;
       left:12px;
       top:-48px;
-      z-index:2000;
+      z-index:3000;
       padding:10px 14px;
       border-radius:10px;
-      background:#ffffff;
-      color:#000000;
+      background:#fff;
+      color:#000;
       font-weight:700;
       transition:top .2s ease;
     }
@@ -80,7 +81,7 @@
     .site-header{
       position:sticky;
       top:0;
-      z-index:1000;
+      z-index:2000;
       height:var(--header-h);
       background:rgba(8,17,27,.84);
       backdrop-filter:blur(14px);
@@ -172,14 +173,14 @@
 
     .hero{
       position:relative;
-      min-height:88vh;
+      min-height:90vh;
       display:flex;
       align-items:flex-end;
       border-bottom:1px solid var(--line);
       background:
-        linear-gradient(180deg, rgba(5,13,22,.16) 0%, rgba(5,13,22,.42) 48%, rgba(5,13,22,.88) 100%),
-        linear-gradient(90deg, rgba(5,13,22,.70) 0%, rgba(5,13,22,.20) 46%, rgba(5,13,22,.76) 100%),
-        url("IMG_3831.jpeg") center center / cover no-repeat;
+        linear-gradient(180deg, rgba(5,13,22,.18) 0%, rgba(5,13,22,.48) 52%, rgba(5,13,22,.92) 100%),
+        linear-gradient(90deg, rgba(5,13,22,.72) 0%, rgba(5,13,22,.22) 46%, rgba(5,13,22,.78) 100%),
+        url("IMG_4057.jpeg") center center / cover no-repeat;
     }
 
     .hero::after{
@@ -194,7 +195,7 @@
       position:relative;
       z-index:2;
       width:100%;
-      padding:112px 0 26px;
+      padding:112px 0 28px;
     }
 
     .eyebrow{
@@ -271,6 +272,34 @@
     .btn.primary{
       background:rgba(143,185,215,.18);
       border-color:rgba(143,185,215,.30);
+    }
+
+    .hero-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .hero-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(8,17,27,.36);
+      color:#e4edf4;
+      font-size:.88rem;
+    }
+
+    .hero-pill::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--accent);
+      flex:0 0 auto;
     }
 
     .section-nav{
@@ -461,6 +490,7 @@
       .hero-subtitle{ font-size:.97rem; }
       .btn{ min-height:40px; font-size:.84rem; }
       .section-nav a{ font-size:.84rem; }
+      .hero-pill{ font-size:.82rem; padding:8px 12px; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -508,11 +538,18 @@
           経済と安全保障の両面から統合的に捉える独立研究サイト。
         </p>
 
-        <p class="hero-meta">最終更新：2026-03-10</p>
+        <p class="hero-meta">最終更新：2026-03-11</p>
 
         <div class="cta-row">
           <a class="btn primary" href="#analysis">最新分析へ</a>
           <a class="btn" href="#dashboard">概要指標へ</a>
+        </div>
+
+        <div class="hero-pills">
+          <span class="hero-pill">米国グローバルシステム</span>
+          <span class="hero-pill">中国グローバルシステム</span>
+          <span class="hero-pill">経済構造の再編</span>
+          <span class="hero-pill">軍事・安全保障構造</span>
         </div>
 
         <nav class="section-nav" aria-label="セクションナビゲーション">
@@ -584,3 +621,231 @@
         </div>
       </div>
     </section>
+
+    <section class="section" id="areas">
+      <p class="section-kicker">Research Areas</p>
+      <h2 class="section-title">研究領域</h2>
+      <p class="section-intro">
+        経済構造と安全保障構造の交差点に位置する主要テーマを、四つの領域から整理します。
+      </p>
+
+      <div class="grid two">
+        <article class="card">
+          <p class="card-meta">Area 01</p>
+          <h3>米国グローバルシステム</h3>
+          <p>
+            ドル決済、同盟網、技術管理、制裁、資源取引、前方展開能力を含む
+            米国中心の経済・安全保障ネットワークを分析します。
+          </p>
+        </article>
+
+        <article class="card">
+          <p class="card-meta">Area 02</p>
+          <h3>中国グローバルシステム</h3>
+          <p>
+            人民元決済、物流接続、資源調達、一帯一路、周辺・外縁部の戦略的プレゼンスを含む
+            中国中心の構造形成を分析します。
+          </p>
+        </article>
+
+        <article class="card">
+          <p class="card-meta">Area 03</p>
+          <h3>経済構造の再編</h3>
+          <p>
+            サプライチェーン、海上交通路、重要鉱物、エネルギー、国別依存度の変化を通じて、
+            複数圏への再編を把握します。
+          </p>
+        </article>
+
+        <article class="card">
+          <p class="card-meta">Area 04</p>
+          <h3>軍事・安全保障構造</h3>
+          <p>
+            同盟、抑止、軍事バランス、地域紛争、経済ブロック化の相互作用を分析し、
+            安全保障環境の変容を追跡します。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="analysis">
+      <p class="section-kicker">Latest Analysis</p>
+      <h2 class="section-title">最新分析</h2>
+      <p class="section-intro">
+        現時点での掲載例です。ここに実分析を積み上げていく構成にしています。
+      </p>
+
+      <div class="grid two">
+        <article class="card">
+          <p class="card-meta">Sample Analysis</p>
+          <h3>決済ネットワーク分岐と経済秩序再編</h3>
+          <p>
+            ドル圏・人民元圏・第三極の形成可能性を、
+            決済、制裁、制度接続の観点から比較するための基礎分析テーマです。
+          </p>
+        </article>
+
+        <article class="card">
+          <p class="card-meta">Sample Analysis</p>
+          <h3>ホルムズ・マラッカ・西太平洋の連動性</h3>
+          <p>
+            エネルギー輸送、海上保険、物流動脈、安全保障環境を
+            一体のシステムとして見るための基礎分析テーマです。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="methodology">
+      <p class="section-kicker">Methodology</p>
+      <h2 class="section-title">方法論</h2>
+      <p class="section-intro">
+        公開統計と公開安全保障情報を統合し、定量・定性の両面から世界構造の変化を分析します。
+      </p>
+
+      <div class="grid three">
+        <div class="card">
+          <h3>主な情報源</h3>
+          <ul class="list-clean">
+            <li>各国政府統計</li>
+            <li>国際機関データ</li>
+            <li>貿易・決済関連データ</li>
+            <li>エネルギー・資源関連情報</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>分析手法</h3>
+          <ul class="list-clean">
+            <li>国別依存構造の比較</li>
+            <li>ネットワーク分析</li>
+            <li>経済指標と安全保障指標の統合評価</li>
+            <li>シナリオ別構造変化分析</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>分析の制約</h3>
+          <ul class="list-clean">
+            <li>統計公表の時間差</li>
+            <li>非公開政策の存在</li>
+            <li>データ欠損や定義差</li>
+            <li>制度変更反映の遅れ</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="data">
+      <p class="section-kicker">Data Platform</p>
+      <h2 class="section-title">データ基盤</h2>
+      <p class="section-intro">
+        国別配置、対米依存、対中依存、エネルギー依存、安全保障関係の基礎データを整理する枠組みです。
+      </p>
+
+      <div class="grid two">
+        <div class="card">
+          <h3>整備予定データ項目</h3>
+          <ul class="list-clean">
+            <li>国別配置</li>
+            <li>対米依存度</li>
+            <li>対中依存度</li>
+            <li>エネルギー依存</li>
+            <li>安全保障関係</li>
+            <li>主要ネットワーク指標</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>データ整備方針</h3>
+          <ul class="list-clean">
+            <li>一次情報優先</li>
+            <li>比較可能性重視</li>
+            <li>更新日明示</li>
+            <li>欠損は欠損として維持</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <p class="section-kicker">About</p>
+      <h2 class="section-title">本プロジェクトについて</h2>
+      <p class="section-intro">
+        WESTPAC SENTINEL は、世界経済秩序と安全保障構造の再編を、日本語で継続的に追跡する独立研究プロジェクトです。
+      </p>
+
+      <div class="grid two">
+        <div class="panel">
+          <p>
+            本サイトは、米中競争、経済安全保障、決済ネットワーク、物流、資源、エネルギー、軍事環境の変化を、
+            分断されたトピックとしてではなく、一つの連結構造として把握することを目指します。
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>運用方針</h3>
+          <ul class="list-clean">
+            <li>日本語で継続更新</li>
+            <li>一次情報を優先</li>
+            <li>経済と安全保障を統合把握</li>
+            <li>長期構造変化を追跡</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <strong>WESTPAC SENTINEL</strong> / Independent Research Project<br>
+      世界経済・安全保障構造モニター
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const header = document.getElementById('site-header');
+      const navLinks = Array.from(document.querySelectorAll('#top-nav a, #section-nav a'));
+      const sections = Array.from(document.querySelectorAll('main .section'));
+
+      function setCompactHeader() {
+        if (window.scrollY > 24) {
+          header.classList.add('compact');
+        } else {
+          header.classList.remove('compact');
+        }
+      }
+
+      function setActiveById(id) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+
+      setCompactHeader();
+      window.addEventListener('scroll', setCompactHeader, { passive: true });
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          const visible = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+          if (visible.length > 0) {
+            setActiveById(visible[0].target.id);
+          }
+        }, {
+          rootMargin: '-25% 0px -55% 0px',
+          threshold: [0.15, 0.35, 0.6]
+        });
+
+        sections.forEach(section => observer.observe(section));
+      } else {
+        setActiveById('overview');
+      }
+    })();
+  </script>
+</body>
+</html>
