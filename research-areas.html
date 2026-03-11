@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>研究領域 | WESTPAC SENTINEL</title>
+  <meta name="description" content="WESTPAC SENTINEL の研究領域。米国グローバルシステム、中国グローバルシステム、経済構造の再編、軍事・安全保障構造を整理。">
+  <meta name="theme-color" content="#08111b">
+  <meta property="og:title" content="研究領域 | WESTPAC SENTINEL">
+  <meta property="og:description" content="米国グローバルシステム、中国グローバルシステム、経済構造の再編、軍事・安全保障構造を整理。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="IMG_4057.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="IMG_4057.jpeg">
+
+  <style>
+    :root{
+      --bg:#08111b;
+      --bg2:#0d1825;
+      --panel:#102338;
+      --panel2:#132943;
+      --line:rgba(255,255,255,.08);
+      --line-strong:rgba(255,255,255,.14);
+      --text:#edf4f8;
+      --muted:#a8bac9;
+      --accent:#8fb9d7;
+      --shadow:0 16px 38px rgba(0,0,0,.28);
+      --radius:22px;
+      --max:1160px;
+      --header-h:72px;
+      --header-h-small:58px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(95,136,168,.10), transparent 24%),
+        linear-gradient(180deg, #06101a 0%, #08111b 100%);
+      font-family:
+        "Noto Sans JP",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Hiragino Sans",
+        "Yu Gothic",
+        "Meiryo",
+        sans-serif;
+      line-height:1.85;
+      letter-spacing:.01em;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+
+    .container{
+      width:min(var(--max), calc(100% - 28px));
+      margin-inline:auto;
+    }
+
+    .skip-link{
+      position:absolute;
+      left:12px;
+      top:-48px;
+      z-index:3000;
+      padding:10px 14px;
+      border-radius:10px;
+      background:#fff;
+      color:#000;
+      font-weight:700;
+      transition:top .2s ease;
+    }
+
+    .skip-link:focus{ top:12px; }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:2000;
+      height:var(--header-h);
+      background:rgba(8,17,27,.84);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+      transition:height .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .site-header.compact{
+      height:var(--header-h-small);
+      background:rgba(8,17,27,.94);
+      box-shadow:0 10px 24px rgba(0,0,0,.20);
+    }
+
+    .header-inner{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      min-width:0;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex:1 1 auto;
+    }
+
+    .brand-dot{
+      width:16px;
+      height:16px;
+      border-radius:50%;
+      flex:0 0 auto;
+      background:radial-gradient(circle at 35% 35%, #e3eef8, #8fb9d7 60%, #41617b 100%);
+      box-shadow:0 0 0 8px rgba(143,185,215,.10);
+    }
+
+    .brand-text{ min-width:0; }
+
+    .brand-title{
+      margin:0;
+      font-size:1rem;
+      font-weight:900;
+      letter-spacing:.08em;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .brand-sub{
+      margin:2px 0 0;
+      font-size:.78rem;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .top-nav{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      overflow-x:auto;
+      scrollbar-width:none;
+      flex:0 1 auto;
+      max-width:62%;
+    }
+
+    .top-nav::-webkit-scrollbar{ display:none; }
+
+    .top-nav a{
+      white-space:nowrap;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid transparent;
+      color:#dce8ef;
+      font-size:.84rem;
+      transition:background .18s ease, border-color .18s ease;
+    }
+
+    .top-nav a:hover,
+    .top-nav a.active{
+      background:rgba(255,255,255,.05);
+      border-color:var(--line);
+    }
+
+    .hero{
+      position:relative;
+      min-height:58vh;
+      display:flex;
+      align-items:flex-end;
+      border-bottom:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(5,13,22,.20) 0%, rgba(5,13,22,.50) 52%, rgba(5,13,22,.90) 100%),
+        linear-gradient(90deg, rgba(5,13,22,.72) 0%, rgba(5,13,22,.22) 46%, rgba(5,13,22,.78) 100%),
+        url("IMG_4057.jpeg") center center / cover no-repeat;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:radial-gradient(circle at top left, rgba(143,185,215,.10), transparent 28%);
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      width:100%;
+      padding:108px 0 24px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(8,17,27,.42);
+      color:#dce8ef;
+      font-size:.80rem;
+      margin-bottom:16px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--accent);
+      flex:0 0 auto;
+    }
+
+    .hero-title{
+      margin:0;
+      font-size:clamp(2.3rem, 9vw, 4.3rem);
+      line-height:1.04;
+      letter-spacing:.04em;
+      font-weight:900;
+      text-shadow:0 10px 24px rgba(0,0,0,.24);
+    }
+
+    .hero-subtitle{
+      margin:16px 0 0;
+      max-width:760px;
+      color:#dce7ef;
+      font-size:clamp(1rem, 2.5vw, 1.06rem);
+    }
+
+    .hero-meta{
+      margin-top:14px;
+      color:#c5d5e0;
+      font-size:.88rem;
+    }
+
+    main{ padding:18px 0 64px; }
+
+    .section{
+      padding:40px 0 26px;
+      scroll-margin-top:84px;
+    }
+
+    .section + .section{
+      border-top:1px solid var(--line);
+    }
+
+    .section-kicker{
+      margin:0 0 10px;
+      color:var(--accent);
+      letter-spacing:.18em;
+      font-size:.78rem;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+
+    .section-title{
+      margin:0 0 18px;
+      font-size:clamp(1.8rem, 7vw, 3rem);
+      line-height:1.14;
+      letter-spacing:.02em;
+      font-weight:900;
+    }
+
+    .section-intro{
+      margin:0 0 22px;
+      font-size:1rem;
+      color:#d3dfe8;
+    }
+
+    .panel{
+      background:
+        radial-gradient(circle at top left, rgba(143,185,215,.07), transparent 26%),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
+        var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:22px 18px;
+      box-shadow:var(--shadow);
+    }
+
+    .panel p{
+      margin:0;
+      color:#d7e2ea;
+    }
+
+    .grid{
+      display:grid;
+      gap:16px;
+    }
+
+    .card{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
+        var(--panel2);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:22px 18px;
+      box-shadow:var(--shadow);
+      transition:transform .18s ease, border-color .18s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-2px);
+      border-color:var(--line-strong);
+    }
+
+    .card h3{
+      margin:0 0 12px;
+      font-size:1.12rem;
+      line-height:1.45;
+      font-weight:800;
+      color:#f2f7fb;
+    }
+
+    .card p{
+      margin:0;
+      color:#cfdae4;
+    }
+
+    .card-meta{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:.80rem;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
+    .sub-block{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+    }
+
+    .sub-block h4{
+      margin:0 0 10px;
+      font-size:.95rem;
+      color:#eef4f8;
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+
+    .list-clean{
+      margin:0;
+      padding-left:1.2em;
+      color:#d7e2eb;
+    }
+
+    .list-clean li + li{
+      margin-top:10px;
+    }
+
+    .cta-grid{
+      display:grid;
+      gap:16px;
+    }
+
+    .cta-card{
+      display:block;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
+        var(--panel2);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:20px 18px;
+      box-shadow:var(--shadow);
+      transition:transform .18s ease, border-color .18s ease;
+    }
+
+    .cta-card:hover{
+      transform:translateY(-2px);
+      border-color:var(--line-strong);
+    }
+
+    .cta-card strong{
+      display:block;
+      margin-bottom:8px;
+      color:#eef4f8;
+      font-size:1rem;
+    }
+
+    .cta-card span{
+      color:#cad7e1;
+      font-size:.92rem;
+    }
+
+    .footer{
+      border-top:1px solid var(--line);
+      padding:28px 0 40px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .footer strong{ color:#e8f1f7; }
+
+    @media (min-width:760px){
+      .grid.two{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .cta-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width:640px){
+      .brand-title{ font-size:.9rem; }
+      .brand-sub{ display:none; }
+      .top-nav{ max-width:58%; }
+      .top-nav a{ font-size:.78rem; padding:6px 10px; }
+      .hero-inner{ padding-top:102px; padding-bottom:22px; }
+      .hero-title{ font-size:2.35rem; }
+      .hero-subtitle{ font-size:.97rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .site-header,
+      .card,
+      .cta-card,
+      .top-nav a{ transition:none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">本文へスキップ</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <div class="brand-text">
+          <p class="brand-title">WESTPAC SENTINEL</p>
+          <p class="brand-sub">世界経済・安全保障構造モニター</p>
+        </div>
+      </div>
+
+      <nav class="top-nav" id="top-nav" aria-label="上部ナビゲーション">
+        <a href="index.html">Home</a>
+        <a href="research-areas.html" class="active">研究領域</a>
+        <a href="analysis.html">分析</a>
+        <a href="data.html">データ</a>
+        <a href="methodology.html">方法論</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="container">
+        <div class="eyebrow">Research Areas</div>
+        <h1 class="hero-title">研究領域</h1>
+        <p class="hero-subtitle">
+          WESTPAC SENTINEL は、米国グローバルシステム、中国グローバルシステム、
+          経済構造の再編、軍事・安全保障構造の4領域を軸に、
+          世界経済秩序と安全保障構造の再編を統合的に観測します。
+        </p>
+        <p class="hero-meta">最終更新：2026-03-11</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="container" id="main-content">
+
+    <section class="section" id="overview">
+      <p class="section-kicker">Overview</p>
+      <h2 class="section-title">研究設計の全体像</h2>
+      <p class="section-intro">
+        4つの研究領域は独立したテーマではなく、決済・物流・資源・技術・同盟・抑止が
+        どのように重なって世界を再構成しているかを、別々の角度から観測するための設計です。
+      </p>
+
+      <div class="panel">
+        <p>
+          本サイトは、単なる地政学的論評ではなく、国家ごとの依存構造、制度接続、輸送動脈、
+          危機波及を比較可能な形で整理することを目的とします。4領域は相互接続されており、
+          いずれか1つだけでは世界構造の再編を十分に説明できません。
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="us-system">
+      <p class="section-kicker">Area 01</p>
+      <h2 class="section-title">米国グローバルシステム</h2>
+      <p class="section-intro">
+        ドル決済、SWIFT系制度、米国市場、同盟網、技術管理、制裁能力、前方展開能力を中核とする国際接続構造です。
+      </p>
+
+      <div class="card">
+        <p class="card-meta">Definition</p>
+        <h3>領域定義</h3>
+        <p>
+          米国グローバルシステムは、ドルを基軸とする決済制度、巨大市場、同盟ネットワーク、
+          技術規制、制裁能力、軍事的前方展開が相互に支え合う構造として捉えます。
+        </p>
+
+        <div class="sub-block">
+          <h4>観測対象</h4>
+          <ul class="list-clean">
+            <li>ドル決済</li>
+            <li>SWIFT等の制度基盤</li>
+            <li>米国市場</li>
+            <li>同盟網</li>
+            <li>技術管理</li>
+            <li>制裁能力</li>
+            <li>前方展開能力</li>
+            <li>資源・市場接続</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <h4>主要論点</h4>
+          <ul class="list-clean">
+            <li>ドル基軸の維持力</li>
+            <li>同盟網の結束</li>
+            <li>技術覇権の持続</li>
+            <li>制裁の有効性</li>
+            <li>市場吸引力の継続</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <h4>主要指標</h4>
+          <ul class="list-clean">
+            <li>対米輸出入</li>
+            <li>ドル建て比率</li>
+            <li>同盟関係</li>
+            <li>制裁参加</li>
+            <li>技術規制接続</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="china-system">
+      <p class="section-kicker">Area 02</p>
+      <h2 class="section-title">中国グローバルシステム</h2>
+      <p class="section-intro">
+        人民元決済、CIPS系制度、物流接続、一帯一路、資源調達、供給網、周辺・外縁戦略を中核とする国際接続構造です。
+      </p>
+
+      <div class="card">
+        <p class="card-meta">Definition</p>
+        <h3>領域定義</h3>
+        <p>
+          中国グローバルシステムは、人民元決済の拡大、港湾・物流接続、製造・供給網、
+          資源調達、周辺・外縁への影響力を通じて形成される接続構造として捉えます。
+        </p>
+
+        <div class="sub-block">
+          <h4>観測対象</h4>
+          <ul class="list-clean">
+            <li>人民元決済</li>
+            <li>CIPS等の制度基盤</li>
+            <li>一帯一路</li>
+            <li>港湾・物流</li>
+            <li>資源調達</li>
+            <li>供給網</li>
+            <li>製造拠点</li>
+            <li>周辺海域プレゼンス</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <h4>主要論点</h4>
+          <ul class="list-clean">
+            <li>人民元圏の拡大可能性</li>
+            <li>物流と港湾を通じた影響力</li>
+            <li>資源と中間財の吸引力</li>
+            <li>中国依存の固定化</li>
+            <li>周辺・外縁接続の強化</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <h4>主要指標</h4>
+          <ul class="list-clean">
+            <li>対中輸出入</li>
+            <li>中間財依存</li>
+            <li>人民元決済接続</li>
+            <li>中国由来供給網</li>
+            <li>BRI・港湾接続</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="economic-restructuring">
+      <p class="section-kicker">Area 03</p>
+      <h2 class="section-title">経済構造の再編</h2>
+      <p class="section-intro">
+        世界経済が単一市場として統合される段階から、複数の接続圏へ再配置される過程を扱います。
+      </p>
+
+      <div class="card">
+        <p class="card-meta">Definition</p>
+        <h3>領域定義</h3>
+        <p>
+          経済構造の再編は、貿易、サプライチェーン、海上交通路、資源、保険、物流の接続が、
+          どのように分断・再配線されているかを観測する領域です。
+        </p>
+
+        <div class="sub-block">
+          <h4>観測対象</h4>
+          <ul class="list-clean">
+            <li>貿易構造</li>
+            <li>サプライチェーン</li>
+            <li>海上交通路</li>
+            <li>エネルギー流れ</li>
+            <li>重要鉱物</li>
+            <li>保険</li>
+            <li>物流ボトルネック</li>
+            <li>再配置</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <h4>主要論点</h4>
+          <ul class="list-clean">
+            <li>分断か再配線か</li>
+            <li>依存先の集中と分散</li>
+            <li>海上動脈の脆弱性</li>
+            <li>供給網再編の速度</li>
+            <li>危機・制裁による経済圏再構築</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <h4>主要指標</h4>
+          <ul class="list-clean">
+            <li>貿易相手比率</li>
+            <li>輸送依存</li>
+            <li>調達先集中度</li>
+            <li>重要鉱物供給集中</li>
+            <li>エネルギー輸送経路</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="security-structure">
+      <p class="section-kicker">Area 04</p>
+      <h2 class="section-title">軍事・安全保障構造</h2>
+      <p class="section-intro">
+        同盟、抑止、地域軍事バランス、基地、軍事危機、経済制裁との連結を含む安全保障上の構造を扱います。
+      </p>
+
+      <div class="card">
+        <p class="card-meta">Definition</p>
+        <h3>領域定義</h3>
+        <p>
+          軍事・安全保障構造は、西太平洋を中心とした抑止、基地、同盟接続、危機波及を、
+          経済システムの再編と切り離さずに捉える領域です。
+        </p>
+
+        <div class="sub-block">
+          <h4>観測対象</h4>
+          <ul class="list-clean">
+            <li>同盟</li>
+            <li>準同盟</li>
+            <li>基地</li>
+            <li>軍事演習</li>
+            <li>前方展開</li>
+            <li>台湾有事波及</li>
+            <li>地域紛争</li>
+            <li>制裁と軍事危機の接続</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <h4>主要論点</h4>
+          <ul class="list-clean">
+            <li>抑止の実効性</li>
+            <li>危機時の同盟結束</li>
+            <li>台湾有事の経済波及</li>
+            <li>軍事危機と通商・制裁の連結</li>
+            <li>西太平洋での均衡変動</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <h4>主要指標</h4>
+          <ul class="list-clean">
+            <li>同盟の有無</li>
+            <li>基地・駐留</li>
+            <li>演習頻度</li>
+            <li>抑止接続</li>
+            <li>危機波及可能性</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="connections">
+      <p class="section-kicker">Connections</p>
+      <h2 class="section-title">関連ページへの導線</h2>
+      <p class="section-intro">
+        研究領域ページは、分析・データ・方法論ページへの中継点としても機能します。
+      </p>
+
+      <div class="cta-grid">
+        <a class="cta-card" href="analysis.html">
+          <strong>分析ページへ</strong>
+          <span>比較分析、決済ネットワーク、エネルギー輸送、台湾有事波及などの中核分析へ進みます。</span>
+        </a>
+
+        <a class="cta-card" href="data.html">
+          <strong>データ基盤へ</strong>
+          <span>国別配置、対米依存、対中依存、エネルギー依存、安全保障関係の整理ページへ進みます。</span>
+        </a>
+
+        <a class="cta-card" href="methodology.html">
+          <strong>方法論へ</strong>
+          <span>一次情報優先、推定・仮説・欠損の扱い、比較可能性ルールの整理ページへ進みます。</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <strong>WESTPAC SENTINEL</strong> / Independent Research Project<br>
+      研究領域ページ
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const header = document.getElementById('site-header');
+
+      function setCompactHeader() {
+        if (window.scrollY > 24) {
+          header.classList.add('compact');
+        } else {
+          header.classList.remove('compact');
+        }
+      }
+
+      setCompactHeader();
+      window.addEventListener('scroll', setCompactHeader, { passive: true });
+    })();
+  </script>
+</body>
+</html>
