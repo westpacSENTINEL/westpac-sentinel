@@ -27,12 +27,13 @@
       --shadow:0 16px 38px rgba(0,0,0,.28);
       --radius:22px;
       --max:1160px;
-      --header-h:72px;
+      --header-h:74px;
       --header-h-small:58px;
     }
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
+
     body{
       margin:0;
       color:var(--text);
@@ -70,7 +71,6 @@
       font-weight:700;
       transition:top .2s ease;
     }
-
     .skip-link:focus{ top:12px; }
 
     .site-header{
@@ -95,31 +95,31 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
+      gap:14px;
     }
 
     .brand{
       min-width:0;
       display:flex;
       align-items:center;
-      gap:12px;
-      flex:1 1 auto;
+      gap:14px;
+      flex:0 0 auto;
     }
 
     .brand-dot{
-      width:16px;
-      height:16px;
+      width:18px;
+      height:18px;
       border-radius:50%;
       flex:0 0 auto;
       background:radial-gradient(circle at 35% 35%, #e3eef8, #8fb9d7 60%, #41617b 100%);
-      box-shadow:0 0 0 8px rgba(143,185,215,.10);
+      box-shadow:0 0 0 10px rgba(143,185,215,.10);
     }
 
     .brand-text{ min-width:0; }
 
     .brand-title{
       margin:0;
-      font-size:1rem;
+      font-size:1.18rem;
       font-weight:900;
       letter-spacing:.08em;
       white-space:nowrap;
@@ -142,8 +142,8 @@
       gap:8px;
       overflow-x:auto;
       scrollbar-width:none;
-      flex:0 1 auto;
-      max-width:62%;
+      max-width:58%;
+      padding-bottom:2px;
     }
 
     .top-nav::-webkit-scrollbar{ display:none; }
@@ -166,13 +166,13 @@
 
     .hero{
       position:relative;
-      min-height:58vh;
+      min-height:84vh;
       display:flex;
       align-items:flex-end;
       border-bottom:1px solid var(--line);
       background:
-        linear-gradient(180deg, rgba(5,13,22,.20) 0%, rgba(5,13,22,.50) 52%, rgba(5,13,22,.90) 100%),
-        linear-gradient(90deg, rgba(5,13,22,.72) 0%, rgba(5,13,22,.22) 46%, rgba(5,13,22,.78) 100%),
+        linear-gradient(180deg, rgba(5,13,22,.18) 0%, rgba(5,13,22,.44) 42%, rgba(5,13,22,.90) 100%),
+        linear-gradient(90deg, rgba(5,13,22,.70) 0%, rgba(5,13,22,.24) 45%, rgba(5,13,22,.78) 100%),
         url("IMG_4057.jpeg") center center / cover no-repeat;
     }
 
@@ -188,7 +188,7 @@
       position:relative;
       z-index:2;
       width:100%;
-      padding:108px 0 24px;
+      padding:124px 0 26px;
     }
 
     .eyebrow{
@@ -198,7 +198,7 @@
       padding:8px 12px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.14);
-      background:rgba(8,17,27,.42);
+      background:rgba(8,17,27,.40);
       color:#dce8ef;
       font-size:.80rem;
       margin-bottom:16px;
@@ -213,26 +213,68 @@
       flex:0 0 auto;
     }
 
-    .hero-title{
+    .hero-brand{
       margin:0;
-      font-size:clamp(2.3rem, 9vw, 4.3rem);
-      line-height:1.04;
-      letter-spacing:.04em;
+      font-size:clamp(2.8rem, 12vw, 5.6rem);
+      line-height:0.96;
+      letter-spacing:.06em;
       font-weight:900;
+      text-transform:uppercase;
       text-shadow:0 10px 24px rgba(0,0,0,.24);
     }
 
+    .hero-page{
+      margin:20px 0 0;
+      color:#cfe0ec;
+      font-size:clamp(1rem, 2.6vw, 1.2rem);
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
     .hero-subtitle{
-      margin:16px 0 0;
+      margin:14px 0 0;
       max-width:760px;
-      color:#dce7ef;
-      font-size:clamp(1rem, 2.5vw, 1.06rem);
+      color:#e4edf4;
+      font-size:clamp(1rem, 2.7vw, 1.12rem);
     }
 
     .hero-meta{
-      margin-top:14px;
+      margin-top:16px;
       color:#c5d5e0;
       font-size:.88rem;
+    }
+
+    .hero-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+    }
+
+    .hero-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:#eef4f8;
+      font-size:.90rem;
+      transition:transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+
+    .hero-link:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.06);
+      border-color:rgba(255,255,255,.20);
+    }
+
+    .hero-link.primary{
+      background:rgba(143,185,215,.18);
+      border-color:rgba(143,185,215,.30);
     }
 
     main{ padding:18px 0 64px; }
@@ -242,9 +284,7 @@
       scroll-margin-top:84px;
     }
 
-    .section + .section{
-      border-top:1px solid var(--line);
-    }
+    .section + .section{ border-top:1px solid var(--line); }
 
     .section-kicker{
       margin:0 0 10px;
@@ -280,15 +320,15 @@
       box-shadow:var(--shadow);
     }
 
-    .panel p{
-      margin:0;
-      color:#d7e2ea;
-    }
+    .panel p{ margin:0; color:#d7e2ea; }
 
     .grid{
       display:grid;
       gap:16px;
     }
+
+    .grid.two{ grid-template-columns:1fr; }
+    .grid.three{ grid-template-columns:1fr; }
 
     .card{
       background:
@@ -306,6 +346,14 @@
       border-color:var(--line-strong);
     }
 
+    .card-meta{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:.80rem;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
     .card h3{
       margin:0 0 12px;
       font-size:1.12rem;
@@ -319,14 +367,6 @@
       color:#cfdae4;
     }
 
-    .card-meta{
-      margin:0 0 10px;
-      color:var(--muted);
-      font-size:.80rem;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-    }
-
     .sub-block{
       margin-top:18px;
       padding-top:18px;
@@ -338,7 +378,6 @@
       font-size:.95rem;
       color:#eef4f8;
       font-weight:800;
-      letter-spacing:.02em;
     }
 
     .list-clean{
@@ -347,9 +386,7 @@
       color:#d7e2eb;
     }
 
-    .list-clean li + li{
-      margin-top:10px;
-    }
+    .list-clean li + li{ margin-top:10px; }
 
     .cta-grid{
       display:grid;
@@ -396,17 +433,20 @@
 
     @media (min-width:760px){
       .grid.two{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .grid.three{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
       .cta-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
     }
 
     @media (max-width:640px){
-      .brand-title{ font-size:.9rem; }
+      .brand-title{ font-size:.92rem; }
       .brand-sub{ display:none; }
-      .top-nav{ max-width:58%; }
+      .top-nav{ max-width:56%; }
       .top-nav a{ font-size:.78rem; padding:6px 10px; }
-      .hero-inner{ padding-top:102px; padding-bottom:22px; }
-      .hero-title{ font-size:2.35rem; }
+      .hero-inner{ padding-top:112px; padding-bottom:22px; }
+      .hero-brand{ font-size:2.9rem; }
+      .hero-page{ font-size:.94rem; }
       .hero-subtitle{ font-size:.97rem; }
+      .hero-link{ min-height:40px; font-size:.84rem; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -414,6 +454,7 @@
       .site-header,
       .card,
       .cta-card,
+      .hero-link,
       .top-nav a{ transition:none; }
     }
   </style>
@@ -431,7 +472,7 @@
         </div>
       </div>
 
-      <nav class="top-nav" id="top-nav" aria-label="上部ナビゲーション">
+      <nav class="top-nav" aria-label="上部ナビゲーション">
         <a href="index.html">Home</a>
         <a href="research-areas.html" class="active">研究領域</a>
         <a href="analysis.html">分析</a>
@@ -445,14 +486,23 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="container">
-        <div class="eyebrow">Research Areas</div>
-        <h1 class="hero-title">研究領域</h1>
+        <div class="eyebrow">Independent Research Project</div>
+
+        <h1 class="hero-brand">WESTPAC<br>SENTINEL</h1>
+        <p class="hero-page">Research Areas</p>
+
         <p class="hero-subtitle">
-          WESTPAC SENTINEL は、米国グローバルシステム、中国グローバルシステム、
-          経済構造の再編、軍事・安全保障構造の4領域を軸に、
-          世界経済秩序と安全保障構造の再編を統合的に観測します。
+          米国システムと中国システムの競合を、
+          4つの研究領域から観測する。
         </p>
+
         <p class="hero-meta">最終更新：2026-03-11</p>
+
+        <div class="hero-links">
+          <a class="hero-link primary" href="#overview">全体像へ</a>
+          <a class="hero-link" href="analysis.html">分析ページへ</a>
+          <a class="hero-link" href="data.html">データ基盤へ</a>
+        </div>
       </div>
     </div>
   </section>
@@ -692,7 +742,7 @@
       <p class="section-kicker">Connections</p>
       <h2 class="section-title">関連ページへの導線</h2>
       <p class="section-intro">
-        研究領域ページは、分析・データ・方法論ページへの中継点としても機能します。
+        研究領域ページは、分析・データ・方法論ページへの中継点として機能します。
       </p>
 
       <div class="cta-grid">
