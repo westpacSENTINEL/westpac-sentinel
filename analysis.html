@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>analysis.html | CSV接続版</title>
+<meta name="theme-color" content="#08111b">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+:root{--bg:#08111b;--panel:#132943;--panel2:#0d1a28;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);--text:#edf4f8;--muted:#a8bac9;--accent:#8fb9d7;--shadow:0 16px 38px rgba(0,0,0,.28);--max-mobile:720px;--max-desktop:1160px}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);background:radial-gradient(circle at top left, rgba(95,136,168,.10), transparent 24%),linear-gradient(180deg,#06101a 0%,#08111b 100%);font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;line-height:1.75;letter-spacing:.01em}
+a{color:inherit;text-decoration:none}.container{width:min(var(--page-max),calc(100% - var(--page-pad)));margin-inline:auto}
+.site-header{position:sticky;top:0;z-index:2000;background:rgba(8,17,27,.84);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:1 1 auto}
+.brand-dot{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 35%, #e3eef8, #8fb9d7 60%, #41617b 100%);box-shadow:0 0 0 8px rgba(143,185,215,.10)}
+.brand-title{margin:0;font-size:1rem;font-weight:900;letter-spacing:.08em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{margin:2px 0 0;font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top-nav{display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none}.top-nav::-webkit-scrollbar{display:none}
+.top-nav a{white-space:nowrap;padding:8px 12px;border-radius:999px;border:1px solid transparent;color:#dce8ef;font-size:.84rem}
+.top-nav a.active,.top-nav a:hover{background:rgba(255,255,255,.05);border-color:var(--line)}
+.hero{padding:28px 0 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(5,13,22,.20) 0%,rgba(5,13,22,.50) 52%,rgba(5,13,22,.90) 100%),linear-gradient(90deg,rgba(5,13,22,.72) 0%,rgba(5,13,22,.22) 46%,rgba(5,13,22,.78) 100%),url('IMG_4057.jpeg') center center/cover no-repeat}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(8,17,27,.42);color:#dce8ef;font-size:.80rem}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+h1{margin:16px 0 8px;font-size:clamp(2.2rem,10vw,3.8rem);line-height:1.05;font-weight:900;letter-spacing:.04em}
+.hero-subtitle{margin:0;color:#dce7ef;font-size:1rem;max-width:760px}.hero-meta{margin-top:12px;color:#c5d5e0;font-size:.88rem}
+main{padding:24px 0 48px}.section{padding:18px 0}.section-title{margin:0 0 12px;font-size:clamp(1.35rem,5vw,2rem);font-weight:900;line-height:1.2}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),var(--panel);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:16px}
+.footer{border-top:1px solid var(--line);padding:26px 0 38px;color:var(--muted);font-size:.92rem}.footer strong{color:#e8f1f7}
+.mode-switch{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.mode-btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 14px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.04);color:#e8f1f7;cursor:pointer;font-size:.84rem}
+.mode-btn.active{background:rgba(143,185,215,.18);border-color:rgba(143,185,215,.30)}
+.axis-copy{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 14px}.axis-copy span{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#d9e7f0;font-size:.80rem}
+.controls{display:grid;gap:12px;margin:0 0 14px}.control-box{padding:12px 14px;border:1px solid var(--line2);border-radius:16px;background:rgba(255,255,255,.04)}
+.control-label{display:block;font-size:.82rem;color:#d9e7f0;margin-bottom:8px;font-weight:700}
+select,input[type="range"]{width:100%;background:#243a54;color:var(--text);border:1px solid var(--line2);border-radius:10px} select{padding:8px 10px}
+.year-line{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}.year-value{font-weight:800}
+.plot-shell,.summary-shell{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)),var(--panel2);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
+.plot-shell{padding:16px;overflow:hidden}.timeline{display:grid;gap:6px;margin-bottom:10px}
+.timeline-scale{position:relative;height:8px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}.timeline-scale::after{content:"";position:absolute;inset:0 auto 0 0;width:80%;background:linear-gradient(90deg,rgba(143,185,215,.18),rgba(143,185,215,.50));border-radius:999px}
+.timeline-tick-row{position:relative;height:14px}.timeline-tick-row .tick{position:absolute;top:0;width:2px;transform:translateX(-1px);background:rgba(255,255,255,.92);border-radius:2px}.timeline-tick-row .tick.major{height:14px}.timeline-tick-row .tick.minor{height:8px;top:3px;opacity:.72}.timeline-labels{display:flex;justify-content:space-between;gap:8px;color:#bcd0de;font-size:.80rem}
+.plot-grid{display:grid;gap:16px}.plot-stage{position:relative;padding:22px 18px 18px 18px}
+.outer-label{position:absolute;color:#d6e3ec;line-height:1}.outer-label.top{top:12px;left:50%;transform:translateX(-50%);font-size:.92rem}.outer-label.bottom{bottom:0;left:50%;transform:translateX(-50%);font-size:.92rem}.outer-label.left,.outer-label.right{font-size:.92rem;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:.06em;white-space:nowrap}.outer-label.left{left:0;top:50%;transform:translateY(-50%)}.outer-label.right{right:0;top:50%;transform:translateY(-50%)}
+#chart{width:100%;background:linear-gradient(180deg,rgba(255,255,255,.01),rgba(255,255,255,.01)),radial-gradient(circle at 20% 20%, rgba(143,185,215,.07), transparent 18%),radial-gradient(circle at 80% 60%, rgba(143,185,215,.05), transparent 18%),#0d1a28;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.grid-line{stroke:#203244;stroke-dasharray:2,3}.axis-zero{stroke:rgba(255,255,255,.10);stroke-width:1}
+.trace-past{fill:none;stroke:#5b7087;stroke-width:1.4;opacity:.32}.trace-future{fill:none;stroke:#38bdf8;stroke-width:1.6;stroke-dasharray:4,4;opacity:.55}
+.country-bubble{stroke:rgba(255,255,255,.28);stroke-width:1.2;cursor:pointer}
+.country-label{font-size:11px;fill:#f8fafc;paint-order:stroke;stroke:rgba(7,13,22,.92);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.legend span{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.04);font-size:.8rem;color:#d9e7f0}.legend i{display:inline-block;width:12px;height:12px;border-radius:50%}
+.summary-shell{padding:18px}.summary-title{margin:0 0 12px;font-size:1.02rem;font-weight:800;color:#eef4f8}.summary-list{margin:0;padding-left:1.2em;color:#d7e2eb}.summary-list li+li{margin-top:8px}.note{margin-top:14px;color:var(--muted);font-size:.84rem}
+body{--page-max:var(--max-mobile);--page-pad:24px}
+@media (min-width:900px){body:not(.mobile-mode){--page-max:var(--max-desktop);--page-pad:40px}body:not(.mobile-mode) .plot-grid,body.desktop-mode .plot-grid{grid-template-columns:minmax(0,1.9fr) minmax(280px,.9fr)}body:not(.mobile-mode) .controls,body.desktop-mode .controls{grid-template-columns:1fr 1.2fr}}
+body.desktop-mode{--page-max:var(--max-desktop);--page-pad:40px} body.mobile-mode{--page-max:var(--max-mobile);--page-pad:24px}
+@media (max-width:899px){body:not(.desktop-mode) .header-inner,body.mobile-mode .header-inner{min-height:auto;display:grid;grid-template-columns:1fr;gap:10px;padding:12px 0}body:not(.desktop-mode) .brand-sub,body.mobile-mode .brand-sub{display:none}body:not(.desktop-mode) .brand-title,body.mobile-mode .brand-title{font-size:.92rem}body:not(.desktop-mode) .top-nav,body.mobile-mode .top-nav{max-width:100%}body:not(.desktop-mode) .top-nav a,body.mobile-mode .top-nav a{font-size:.80rem;padding:7px 10px}body:not(.desktop-mode) h1,body.mobile-mode h1{font-size:clamp(2.1rem,11vw,3.1rem)}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container header-inner"><div class="brand"><span class="brand-dot" aria-hidden="true"></span><div><p class="brand-title">WESTPAC SENTINEL</p><p class="brand-sub">世界経済・安全保障構造モニター</p></div></div><nav class="top-nav" aria-label="上部ナビゲーション"><a href="index.html">Home</a><a href="analysis.html" class="active">分析</a><a href="data.html">データ</a><a href="method.html">方法</a></nav></div></header>
+<section class="hero"><div class="container"><div class="eyebrow">分析 / CSV接続版</div><h1>分析</h1><p class="hero-subtitle">westpac_80country_data.csv を読み込み、D3可視化に接続する版です。</p><p class="hero-meta">最終更新：2026-03-14 / 表示モード：<span class="mode-status">自動</span></p><div class="mode-switch"><button class="mode-btn" data-mode="auto" type="button">自動</button><button class="mode-btn" data-mode="mobile" type="button">スマホ版</button><button class="mode-btn" data-mode="desktop" type="button">PC版</button></div></div></section>
+<main class="container">
+<section class="section"><h2 class="section-title">国別配置動態アニメーション</h2><div class="plot-shell"><div class="axis-copy"><span>横軸：対米依存 ↔ 対中依存</span><span>縦軸：安全保障接続 ↔ 経済接続</span></div><div class="controls"><div class="control-box"><label class="control-label" for="regionFilter">表示地域</label><select id="regionFilter"></select></div><div class="control-box"><div class="year-line"><label class="control-label" for="yearSlider" style="margin:0;">年次</label><span class="year-value" id="yearDisplay">2026</span></div><input type="range" id="yearSlider" min="2010" max="2030" value="2026" step="1"></div></div><div class="timeline" aria-hidden="true"><div class="timeline-scale"></div><div class="timeline-tick-row"><span class="tick major" style="left:0%"></span><span class="tick minor" style="left:5%"></span><span class="tick minor" style="left:10%"></span><span class="tick minor" style="left:15%"></span><span class="tick minor" style="left:20%"></span><span class="tick major" style="left:25%"></span><span class="tick minor" style="left:30%"></span><span class="tick minor" style="left:35%"></span><span class="tick minor" style="left:40%"></span><span class="tick minor" style="left:45%"></span><span class="tick major" style="left:50%"></span><span class="tick minor" style="left:55%"></span><span class="tick minor" style="left:60%"></span><span class="tick minor" style="left:65%"></span><span class="tick minor" style="left:70%"></span><span class="tick minor" style="left:75%"></span><span class="tick major" style="left:80%"></span><span class="tick minor" style="left:85%"></span><span class="tick minor" style="left:90%"></span><span class="tick minor" style="left:95%"></span><span class="tick major" style="left:100%"></span></div><div class="timeline-labels"><span>2010</span><span>2015</span><span>2020</span><span>2026</span><span>2030</span></div></div><div class="plot-grid"><div class="plot-stage"><span class="outer-label top">安全保障接続が強い</span><span class="outer-label left">対米依存が高い</span><span class="outer-label right">対中依存が高い</span><span class="outer-label bottom">経済接続が相対的に強い</span><div id="chart"></div><div class="legend"><span><i style="background:#93c5fd"></i>北米</span><span><i style="background:#fb7185"></i>東アジア</span><span><i style="background:#38bdf8"></i>欧州</span><span><i style="background:#a855f7"></i>中東</span><span><i style="background:#94a3b8"></i>その他</span></div></div><aside class="summary-shell"><h3 class="summary-title">状態</h3><ul class="summary-list"><li>CSV基準で国一覧・地域・第1層フラグを読み込みます。</li><li>Pending の数値列は仮置き値に変換して表示します。</li><li>次段階で実データを投入すれば、そのまま置き換えできます。</li></ul><p class="note">このファイルと同じ階層に <code>westpac_80country_data.csv</code> を置いて使用してください。</p></aside></div></div></section>
+</main>
+<footer class="footer"><div class="container"><strong>WESTPAC SENTINEL</strong> / Independent Research Project<br>分析 / CSV接続版</div></footer>
+<script>
+(function(){const KEY='westpac_display_mode';function getMode(){const v=localStorage.getItem(KEY);return ['auto','mobile','desktop'].includes(v)?v:'auto';}function applyMode(mode){document.body.classList.remove('mobile-mode','desktop-mode');if(mode==='mobile')document.body.classList.add('mobile-mode');if(mode==='desktop')document.body.classList.add('desktop-mode');localStorage.setItem(KEY,mode);document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));document.querySelectorAll('.mode-status').forEach(el=>el.textContent=mode==='auto'?'自動':(mode==='mobile'?'スマホ版':'PC版'));render(currentRegion,currentYear);}document.addEventListener('DOMContentLoaded',()=>{applyMode(getMode());document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>applyMode(b.dataset.mode)));});})();
+</script>
+<script>
+const years=[2010,2015,2020,2026,2030];
+let currentRegion='all', currentYear=2026, hoveredId=null, countries=[];
+
+const regionColors={
+  "North America":"#93c5fd","East Asia":"#fb7185","Europe":"#38bdf8","Middle East":"#a855f7",
+  "South Asia":"#94a3b8","Southeast Asia":"#f59e0b","Eurasia":"#94a3b8","Oceania":"#10b981",
+  "Africa":"#f97316","South America":"#eab308","Central America":"#22c55e","Central Asia":"#64748b"
+};
+
+function pendingToValue(region,tier1,field){
+  const baseMap={
+    "North America":{us:-8, china:-5, econ:-1, mil:7, pay:7},
+    "East Asia":{us:-1, china:3, econ:2, mil:2, pay:4},
+    "Europe":{us:-2, china:1, econ:0, mil:3, pay:5},
+    "Middle East":{us:1, china:2, econ:3, mil:2, pay:3},
+    "South Asia":{us:0, china:1, econ:1, mil:0, pay:2},
+    "Southeast Asia":{us:1, china:3, econ:3, mil:-1, pay:2},
+    "Eurasia":{us:2, china:2, econ:1, mil:2, pay:1},
+    "Oceania":{us:-5, china:1, econ:1, mil:4, pay:4},
+    "Africa":{us:1, china:2, econ:2, mil:-2, pay:1},
+    "South America":{us:0, china:1, econ:1, mil:-3, pay:1},
+    "Central America":{us:-3, china:1, econ:0, mil:-1, pay:2},
+    "Central Asia":{us:1, china:2, econ:1, mil:-1, pay:1}
+  };
+  const v=(baseMap[region]||baseMap["South Asia"]);
+  const key = field==="us_dependence"?"us":field==="china_dependence"?"china":field==="economic_dependence"?"econ":field==="military_dependence"?"mil":field==="infrastructure_payment_share"?"pay":"econ";
+  return v[key] + (tier1? (field==="military_dependence"||field==="infrastructure_payment_share"?1:0) : 0);
+}
+function makeSeries(v, region, tier1){
+  const drift = region==="East Asia" ? 1 : region==="Europe" ? 0.6 : region==="Middle East" ? 0.5 : 0.3;
+  return [
+    {y:2010, v:v - drift*1.5},
+    {y:2015, v:v - drift},
+    {y:2020, v:v - drift*0.5},
+    {y:2026, v:v},
+    {y:2030, v:v + drift*0.5}
+  ];
+}
+function parseRow(d){
+  const tier1 = +d.tier1 === 1;
+  const us = d.us_dependence === "Pending" ? pendingToValue(d.region,tier1,"us_dependence") : +d.us_dependence;
+  const china = d.china_dependence === "Pending" ? pendingToValue(d.region,tier1,"china_dependence") : +d.china_dependence;
+  const econ = d.economic_dependence === "Pending" ? pendingToValue(d.region,tier1,"economic_dependence") : +d.economic_dependence;
+  const mil = d.military_dependence === "Pending" ? pendingToValue(d.region,tier1,"military_dependence") : +d.military_dependence;
+  return {
+    id:d.country, name:d.country, region:d.region, tier1:tier1, importance:tier1?1.0:0.82,
+    color:regionColors[d.region] || "#94a3b8",
+    history: years.filter(y=>y<=2026).map(y=>({y, x:interp(makeSeries(us,d.region,tier1),y), z:interp(makeSeries(mil-econ,d.region,tier1),y)})),
+    forecast: [{y:2026, x:us, z:mil-econ}, {y:2030, x:interp(makeSeries(us,d.region,tier1),2030), z:interp(makeSeries(mil-econ,d.region,tier1),2030)}]
+  };
+}
+function interp(series, year){
+  const s=[...series].sort((a,b)=>a.y-b.y);
+  if(year<=s[0].y) return s[0].v;
+  if(year>=s[s.length-1].y) return s[s.length-1].v;
+  for(let i=0;i<s.length-1;i++){
+    const a=s[i], b=s[i+1];
+    if(year>=a.y && year<=b.y){
+      const t=(year-a.y)/(b.y-a.y);
+      return a.v+(b.v-a.v)*t;
+    }
+  }
+  return s[s.length-1].v;
+}
+function chartDims(){const desktop=document.body.classList.contains('desktop-mode')||(!document.body.classList.contains('mobile-mode')&&window.matchMedia('(min-width:900px)').matches);return {width:desktop?900:680,height:desktop?560:440,margin:{top:26,right:26,bottom:26,left:26}}}
+function interpolatePoint(points,year){const s=[...points].sort((a,b)=>a.y-b.y);if(year<=s[0].y)return s[0];if(year>=s[s.length-1].y)return s[s.length-1];for(let i=0;i<s.length-1;i++){const a=s[i],b=s[i+1];if(year>=a.y&&year<=b.y){const t=(year-a.y)/(b.y-a.y);return {y:year,x:a.x+(b.x-a.x)*t,z:a.z+(b.z-a.z)*t}}}return s[s.length-1]}
+function getPoint(d,year){return interpolatePoint([...d.history,...d.forecast],year)}
+function shouldShowLabel(d,region,hovered){if(d.id===hovered)return true;if(region!=='all')return d.tier1 || d.region===region;return d.tier1}
+
+const host=d3.select('#chart'); const svg=host.append('svg').style('width','100%').style('height','auto'); const root=svg.append('g'); const gridLayer=root.append('g'); const traceLayer=root.append('g'); const bubbleLayer=root.append('g');
+function buildAxes(w,h,m){svg.attr('viewBox',`0 0 ${w} ${h}`);root.attr('transform',`translate(${m.left},${m.top})`);const plotW=w-m.left-m.right, plotH=h-m.top-m.bottom; const x=d3.scaleLinear().domain([-10,10]).range([0,plotW]); const y=d3.scaleLinear().domain([-10,10]).range([plotH,0]); gridLayer.selectAll('*').remove(); for(let gx=-10;gx<=10;gx+=5){gridLayer.append('line').attr('class','grid-line').attr('x1',x(gx)).attr('x2',x(gx)).attr('y1',0).attr('y2',plotH)} for(let gy=-10;gy<=10;gy+=5){gridLayer.append('line').attr('class','grid-line').attr('x1',0).attr('x2',plotW).attr('y1',y(gy)).attr('y2',y(gy))} gridLayer.append('line').attr('class','axis-zero').attr('x1',x(0)).attr('x2',x(0)).attr('y1',0).attr('y2',plotH); gridLayer.append('line').attr('class','axis-zero').attr('x1',0).attr('x2',plotW).attr('y1',y(0)).attr('y2',y(0)); return {x,y}}
+function render(region=currentRegion,year=currentYear){if(!countries.length) return; currentRegion=region;currentYear=year; const dims=chartDims(); const {x,y}=buildAxes(dims.width,dims.height,dims.margin); const lineGen=d3.line().x(d=>x(d.x)).y(d=>y(d.z)).curve(d3.curveCardinal); const filtered=region==='all'?countries:countries.filter(d=>d.region===region); const data=[...filtered].sort((a,b)=>d3.ascending(a.importance,b.importance)); const r=d3.scaleSqrt().domain([0.8,1.0]).range([6,13]);
+const past=traceLayer.selectAll('.trace-past').data(data,d=>d.id); past.exit().remove(); past.enter().append('path').attr('class','trace-past').merge(past).attr('d',d=>lineGen(d.history));
+const future=traceLayer.selectAll('.trace-future').data(data,d=>d.id); future.exit().remove(); future.enter().append('path').attr('class','trace-future').merge(future).attr('d',d=>lineGen(d.forecast));
+const bubbles=bubbleLayer.selectAll('.country-bubble').data(data,d=>d.id); bubbles.exit().remove(); const entered=bubbles.enter().append('circle').attr('class','country-bubble').attr('fill',d=>d.color).attr('r',d=>r(d.importance));
+entered.merge(bubbles).attr('fill',d=>d.color).on('mouseenter',function(e,d){hoveredId=d.id; d3.select(this).transition().duration(120).attr('r',r(d.importance)+2).attr('stroke-width',2.5); render(currentRegion,currentYear)}).on('mouseleave',function(e,d){hoveredId=null; d3.select(this).transition().duration(120).attr('r',r(d.importance)).attr('stroke-width',1.2); render(currentRegion,currentYear)}).transition().duration(300).attr('cx',d=>x(getPoint(d,year).x)).attr('cy',d=>y(getPoint(d,year).z));
+const labels=bubbleLayer.selectAll('.country-label').data(data,d=>d.id); labels.exit().remove(); labels.enter().append('text').attr('class','country-label').merge(labels).text(d=>shouldShowLabel(d,region,hoveredId)?d.name:'').transition().duration(300).attr('x',d=>x(getPoint(d,year).x)+10).attr('y',d=>y(getPoint(d,year).z)+4)}
+document.getElementById('yearSlider').addEventListener('input',e=>{const y=+e.target.value;document.getElementById('yearDisplay').textContent=y;render(currentRegion,y)});
+document.getElementById('regionFilter').addEventListener('change',e=>render(e.target.value,currentYear));
+window.addEventListener('resize',()=>render(currentRegion,currentYear));
+
+d3.csv('westpac_80country_data.csv').then(data=>{
+  countries = data.map(parseRow);
+  const regions = ['all', ...Array.from(new Set(countries.map(d=>d.region)))];
+  const select = document.getElementById('regionFilter');
+  select.innerHTML = '';
+  regions.forEach(r=>{
+    const opt = document.createElement('option');
+    opt.value = r;
+    opt.textContent = r === 'all' ? 'すべての地域' : r;
+    select.appendChild(opt);
+  });
+  render('all',2026);
+}).catch(err=>{
+  document.querySelector('.note').textContent = 'CSV読込失敗: westpac_80country_data.csv を同階層に置いてください。';
+  console.error(err);
+});
+</script>
+</body>
+</html>
